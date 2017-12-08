@@ -1,0 +1,56 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/submitOrder/submitOrder",
+    "pages/newAdd/newAdd",
+    "pages/address/address",
+    "pages/newsDetail/newsDetail",
+    "pages/message/message",
+    "pages/user/user",
+    "pages/classDetail/classDetail",
+    "pages/goodDetail/goodDetail",
+    "pages/myReturn/myReturn",
+    "pages/return/return",
+    "pages/moreOrders/moreOrders",
+    "pages/coupon/coupon",
+    "pages/shopCart/shopCart",
+    "pages/classify/classify"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#ff6887",
+    "navigationBarTitleText": "WE LOVE 商城",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+        "color": "#000",
+        "selectedColor": "#ff6887",
+        "position": "bottom",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "text": "首页",
+                "iconPath": "img/index.png",
+                "selectedIconPath": "img/index-slt.png"
+            },
+            {
+                "pagePath": "pages/classify/classify",
+                "text": "分类",
+                "iconPath": "img/classify.png",
+                "selectedIconPath": "img/classify-slt.png"
+            },
+            {
+                "pagePath": "pages/shopCart/shopCart",
+                "text": "购物车",
+                "iconPath": "img/cart.png",
+                "selectedIconPath": "img/cart-slt.png"
+            },
+            {
+                "pagePath": "pages/user/user",
+                "text": "我的",
+                "iconPath": "img/mine.png",
+                "selectedIconPath": "img/mine-slt.png"
+            }
+        ]
+    }
+}

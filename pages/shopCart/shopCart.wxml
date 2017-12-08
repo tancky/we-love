@@ -1,0 +1,264 @@
+<!--pages/shopCart/shopCart.wxml-->
+
+<!--empty-shopCart-->
+
+
+<!--shopCart-->
+<view class='shopCart-wrap'>
+    <view class='buy'>
+            <view class='buy-title'>
+                <!-- <checkbox value='buy-store' ></checkbox> -->
+                <view class='buy-title-wrap'>
+                    <image src='../../img/shop.png'></image>
+                    <text class='store-name'>WE LOVE 商城</text>
+                </view>
+            </view>
+        <view class='buy-list'>
+                <!-- <checkbox value='value' ></checkbox> -->
+                <view class='goods-wrap'>
+                    <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                    </navigator>
+                    <view class='delete goods-cell'>
+                        <text>删除</text>
+                    </view>
+                </view>
+            </view>
+        <view class='buy-list'>
+            <!-- <checkbox value='value' ></checkbox> -->
+            <view class='goods-wrap'>
+                <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class='delete goods-cell'>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+        <view class='buy-list'>
+            <!-- <checkbox value='value' ></checkbox> -->
+            <view class='goods-wrap'>
+                <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class='delete goods-cell'>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+        <view class='buy-list'>
+            <!-- <checkbox value='value' ></checkbox> -->
+            <view class='goods-wrap'>
+                <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class='delete goods-cell'>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+        </view>
+    <view class='buy'>
+        <view class='buy-title'>
+            <!-- <checkbox value='buy-store' ></checkbox> -->
+            <view class='buy-title-wrap'>
+                <image src='../../img/shop.png'></image>
+                <text class='store-name'>WE LOVE 商城</text>
+            </view>
+        </view>
+        <view class='buy-list'>
+            <!-- <checkbox value='value' ></checkbox> -->
+            <view class='goods-wrap'>
+                <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class='delete goods-cell'>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+        <view class='buy-list'>
+            <!-- <checkbox value='value' ></checkbox> -->
+            <view class='goods-wrap'>
+                <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class='delete goods-cell'>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+        <view class='buy-list'>
+            <!-- <checkbox value='value' ></checkbox> -->
+            <view class='goods-wrap'>
+                <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class='delete goods-cell'>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+        <view class='buy-list'>
+            <!-- <checkbox value='value' ></checkbox> -->
+            <view class='goods-wrap'>
+                <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+                    <view class="goods-img-nav goods-cell">
+                        <view class='goods-pic'>
+                            <image src='../../img/cart_pic.jpg'></image>
+                        </view>
+                    </view>
+                    <view class='goods goods-cell'>
+                        <view class='top-goods'>
+                            <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                            <view class='format'>巧克力味</view>
+                        </view>
+                        <view class='bottom-goods'>
+                            <view class='goods-price'>
+                                <text class='price'> ¥ 1000 </text>
+                                <text class='number'>x1</text>
+                            </view>
+                        </view>
+                    </view>
+                </navigator>
+                <view class='delete goods-cell'>
+                    <text>删除</text>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
+
+    <view class='pay-wrap'>
+        <view class='cart-pay'>
+            <view class='pay-acount'>
+                <view class='left-count'>
+                    <!-- <checkbox></checkbox>
+                    <text class='total-slt'>全选</text> -->
+                </view>
+                <view class='right-count'>
+                    <text class='total-money'>合计: <text class='red-money'>¥1000</text></text>
+                </view>
+            </view>
+            <view class='pay-btn' bindtap='tapGoSubmit'>结算</view>
+        </view>
+    </view>
+<!--<block wx:else>-->
+    <!--<view class="empty-wrap">-->
+        <!--<text class="empty-title">购物车是空的</text>-->
+        <!--<text class="empty-slt">快去选宝贝吧</text>-->
+        <!--<text class="empty-guangguang">去逛逛</text>-->
+    <!--</view>-->
+<!--</block>-->

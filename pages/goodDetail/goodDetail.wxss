@@ -1,0 +1,146 @@
+/* pages/goodDetail/goodDetail.wxss */
+.swiper {
+    height: 600rpx;
+}
+.slide-image {
+    width: 100%;
+    height: 600rpx;
+}
+
+.good-wrap {
+    padding: 20rpx 30rpx;
+    padding-bottom: 0;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.good-name {
+    font-size: 32rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+.good-price {
+    color: #ff1818;
+    padding: 10rpx 0;
+    font-size: 36rpx;
+    border-bottom: 1px solid #eee;
+}
+.good-addition {
+    padding: 14rpx 0;
+    display: flex;
+    color: #666;
+}
+.good-addition text {
+    flex: 1;
+}
+.good-addition .express {
+    flex: 0 0 40%;
+}
+.select-format {
+    padding: 20rpx 30rpx;
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.select-format image {
+    width: 9rpx;
+    height: 17rpx;
+}
+.select-title {
+    font-size: 30rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #eee;
+}
+.select-title text {
+    margin-left: 10rpx;
+}
+.good-format {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
+    color: #666;
+    font-size: 30rpx;
+}
+.good-number {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20rpx;
+    color: #666;
+    font-size: 30rpx;
+}
+.good-format-picker {
+    flex: 0 0 50%;
+    text-align: right;
+}
+.good-detail-title {
+    background-color: #fff;
+    padding: 20rpx 30rpx;
+    font-size: 30rpx;
+    display: flex;
+    justify-content:center;
+}
+.good-detail {
+    padding-bottom: 100rpx;
+}
+.good-detail image {
+    width: 100%;
+}
+.down-btn {
+    position: fixed;
+    left:0;
+    bottom: 0;
+    width: 100%;
+    height: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.down-btn view {
+    flex: 1;
+    height: 90rpx;
+    display: flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 30rpx;
+}
+.down-btn .add-cart {
+    color: #fff;
+    background-color: #ff962f;
+}
+.down-btn .pay-now {
+    color: #fff;
+    background-color: #ff5b28;
+}
+
+.input-buy {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 170rpx;
+    margin-left: 20rpx;
+    text-align: center;
+}
+.input-buy text:first-child {
+    width: 50%;
+    border-right: 1px solid #eee;
+    background-color: #f8f8f8;
+}
+.input-buy .decrease {
+    color: #ccc;
+}
+
+.input-buy text:last-child {
+    width: 50%;
+    border-left: 1px solid #eee;
+    background-color: #f8f8f8;
+}
+.input-buy input {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.input-buy .input-place {
+    text-align: center;
+}

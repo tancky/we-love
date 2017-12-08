@@ -1,0 +1,71 @@
+<!--pages/address/address.wxml-->
+        <view class='address-list'>
+            <view class='address-title'>
+                <text class='add-name'>钱多多</text>
+                <text class='add-phone'>1383838438</text>
+            </view>
+            <view class='add-detail'>北京市昌平区回龙观东大街北京市昌平区回龙观东大街北京市昌平区回龙观东大街北京市昌平区回龙观东大街</view>
+            <view class='add-default'>
+                    <view class='add-left-cont  default-color'>
+                        <image src='../../img/add-icon-slt.png'></image>
+                        <text>默认地址</text>
+                    </view>
+                <!-- <block wx:else>
+                    <text data-address_id="{{item.id}}" bindtap="tapSetDefault">设为默认</text>
+                </block> -->
+
+                <view class='add-right-cont'>
+                    <text catchtap="tapEditAddress" data-address_id="{{item.id}}">编辑</text>
+                        <text>丨</text>
+                        <text catchtap='tapDelAddress' data-address_id="{{item.id}}">删除</text>
+                </view>
+            </view>
+        </view>
+<view class='address-list'>
+    <view class='address-title'>
+        <text class='add-name'>钱多多</text>
+        <text class='add-phone'>1383838438</text>
+    </view>
+    <view class='add-detail'>北京市昌平区回龙观东大街北京市昌平区回龙观东大街北京市昌平区回龙观东大街北京市昌平区回龙观东大街</view>
+    <view class='add-default'>
+        <view class='add-left-cont  default-color'>
+            <image src='../../img/add-icon.png'></image>
+            <text class="set-default">设为默认</text>
+        </view>
+        <!-- <block wx:else>
+            <text data-address_id="{{item.id}}" bindtap="tapSetDefault">设为默认</text>
+        </block> -->
+
+        <view class='add-right-cont'>
+            <text catchtap="tapEditAddress" data-address_id="{{item.id}}">编辑</text>
+            <text>丨</text>
+            <text catchtap='tapDelAddress' data-address_id="{{item.id}}">删除</text>
+        </view>
+    </view>
+</view>
+<view class='address-list'>
+    <view class='address-title'>
+        <text class='add-name'>钱多多</text>
+        <text class='add-phone'>1383838438</text>
+    </view>
+    <view class='add-detail'>北京市昌平区回龙观东大街北京市昌平区回龙观东大街北京市昌平区回龙观东大街北京市昌平区回龙观东大街</view>
+    <view class='add-default'>
+        <view class='add-left-cont  default-color'>
+            <image src='../../img/add-icon.png'></image>
+            <text class="set-default">设为默认</text>
+        </view>
+        <!-- <block wx:else>
+            <text data-address_id="{{item.id}}" bindtap="tapSetDefault">设为默认</text>
+        </block> -->
+
+        <view class='add-right-cont'>
+            <text catchtap="tapEditAddress" data-address_id="{{item.id}}">编辑</text>
+            <text>丨</text>
+            <text catchtap='tapDelAddress' data-address_id="{{item.id}}">删除</text>
+        </view>
+    </view>
+</view>
+<!-- bottom-button -->
+    <navigator url='/pages/newAdd/newAdd'>
+        <view class='add-address'>添加新地址</view>
+    </navigator>

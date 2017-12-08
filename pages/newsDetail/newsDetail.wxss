@@ -1,0 +1,22 @@
+/* pages/newsDetail/newsDetail.wxss */
+page {
+    background-color: #fff;
+}
+.news-wrap {
+    width: 92%;
+    margin: 0 auto;
+}
+.news-head {
+    margin-top: 20rpx;
+}
+.news-page-title {
+    font-size: 30rpx;
+    margin-bottom: 20rpx;
+}
+.news-page-date {
+    font-size: 24rpx;
+    color: #666;
+}
+.news-cont {
+    line-height:46rpx;
+}

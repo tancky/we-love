@@ -1,0 +1,67 @@
+/* pages/address/address.wxss */
+
+.address-list {
+    margin-bottom: 20rpx;
+    padding: 0 20rpx;
+    background-color: #fff;
+}
+
+.address-title {
+    display: flex;
+    justify-content: space-between;
+}
+
+.address-title text {
+    padding: 15rpx 0;
+    font-size: 32rpx;
+}
+
+.add-detail {
+    margin-top: 10rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1px solid #eee;
+}
+
+.add-default {
+    display: flex;
+    justify-content: space-between;
+    padding: 30rpx 0;
+}
+
+.add-left-cont {
+    display: flex;
+    align-items: center;
+}
+
+.add-left-cont image {
+    width: 35rpx;
+    height: 35rpx;
+}
+
+.add-left-cont text {
+    margin-left: 15rpx;
+}
+.add-left-cont .set-default {
+  color: #666;
+}
+
+.add-right-cont {
+    display: flex;
+    color: #666;
+    font-size: 28rpx;
+}
+.default-color {
+    color: #f1335a;
+}
+
+.add-address {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    background-color: #f1335a;
+    color: #fff;
+}

@@ -1,0 +1,95 @@
+/* pages/moreOrders/moreOrders.wxss */
+
+.order-tab {
+    display: flex;
+    background-color: #fff;
+}
+.order-tab-option {
+    flex: 1;
+    padding: 26rpx 0;
+    text-align: center;
+}
+.o-wrap {
+    width: 94%;
+    margin:0 auto;
+}
+.order-list {
+    background-color: #fff;
+    margin-bottom: 20rpx;
+}
+.o-title {
+    display: flex;
+    padding: 10rpx 0;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    font-size: 30rpx;
+}
+.o-title .o-status {
+    color: #ff4e25;
+}
+.o-info-wrap {
+    display: flex;
+    margin: 20rpx 0;
+}
+.o-info-wrap image{
+    flex:0 0 180rpx;
+    width: 180rpx;
+    height: 180rpx;
+}
+.o-info {
+    flex: 1;
+    margin-left: 40rpx;
+    height: 180rpx;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+}
+.o-info .o-good-name {
+    font-size: 30rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:1;
+}
+.o-info .o-format {
+    margin-top: 50rpx;
+    margin-bottom: 10rpx;
+    color: #666;
+    font-size: 26rpx;
+}
+.o-info .o-number {
+    margin-bottom: 10rpx;
+    color: #666;
+    font-size: 26rpx;
+}
+.o-total,.o-detail {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 16rpx;
+}
+
+.o-total .o-total-price {
+    margin-left: 40rpx;
+}
+.o-total .o-total-price .o-red-price {
+    color: #ff4e25;
+    margin-left: 10rpx;
+}
+.o-detail text {
+    padding: 4rpx 30rpx;
+    border: 1px solid #eee;
+    border-radius: 50rpx;
+}
+.o-detail .cancel-detail {
+    background-color: #eeeeee;
+}
+.o-detail .go-pay {
+    margin-left: 30rpx;
+    background-color: #ff4e25;
+    color: #fff;
+}
+.o-active {
+    color: #ff4e25;
+    border-bottom: 1px solid #ff4e25;
+}

@@ -1,0 +1,142 @@
+<!--pages/submitOrder/submitOrder.wxml-->
+<view class="order-head">
+    <image src="../../img/loc.png" class="left-bg"></image>
+    <view class="order-title-wrap">
+        <view class="order-title">
+            <text class="order-receive-name">收货人: 钱多多</text>
+            <text class="order-receive-num">1383838138</text>
+        </view>
+        <view class="order-receive-add">收货地址: 北京市昌平区回龙观东大街回龙观东大街</view>
+    </view>
+    <image src="../../img/enter.png" class="right-bg"></image>
+</view>
+<view class="line-wrap">
+    <image class="line" src="../../img/line.png"></image>
+</view>
+<view class="order-goods-wrap">
+    <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+        <view class="goods-img-nav goods-cell">
+            <view class='goods-pic'>
+                <image src='../../img/cart_pic.jpg'></image>
+            </view>
+        </view>
+        <view class='goods goods-cell'>
+            <view class='top-goods'>
+                <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                <view class='format'>巧克力味</view>
+            </view>
+            <view class='bottom-goods'>
+                <view class='goods-price'>
+                    <text class='price'> ¥ 1000 </text>
+                    <text class='number'>x1</text>
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+        <view class="goods-img-nav goods-cell">
+            <view class='goods-pic'>
+                <image src='../../img/cart_pic.jpg'></image>
+            </view>
+        </view>
+        <view class='goods goods-cell'>
+            <view class='top-goods'>
+                <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                <view class='format'>巧克力味</view>
+            </view>
+            <view class='bottom-goods'>
+                <view class='goods-price'>
+                    <text class='price'> ¥ 1000 </text>
+                    <text class='number'>x1</text>
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+        <view class="goods-img-nav goods-cell">
+            <view class='goods-pic'>
+                <image src='../../img/cart_pic.jpg'></image>
+            </view>
+        </view>
+        <view class='goods goods-cell'>
+            <view class='top-goods'>
+                <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                <view class='format'>巧克力味</view>
+            </view>
+            <view class='bottom-goods'>
+                <view class='goods-price'>
+                    <text class='price'> ¥ 1000 </text>
+                    <text class='number'>x1</text>
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+        <view class="goods-img-nav goods-cell">
+            <view class='goods-pic'>
+                <image src='../../img/cart_pic.jpg'></image>
+            </view>
+        </view>
+        <view class='goods goods-cell'>
+            <view class='top-goods'>
+                <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                <view class='format'>巧克力味</view>
+            </view>
+            <view class='bottom-goods'>
+                <view class='goods-price'>
+                    <text class='price'> ¥ 1000 </text>
+                    <text class='number'>x1</text>
+                </view>
+            </view>
+        </view>
+    </navigator>
+    <navigator url="/pages/goodDetail/goodDetail" class="goods-wrap-nav">
+        <view class="goods-img-nav goods-cell">
+            <view class='goods-pic'>
+                <image src='../../img/cart_pic.jpg'></image>
+            </view>
+        </view>
+        <view class='goods goods-cell'>
+            <view class='top-goods'>
+                <view class='goods-name'>东具冰淇淋粉 自制家用商用雪糕粉软冰激凌圣代甜筒原料批发1000g</view>
+                <view class='format'>巧克力味</view>
+            </view>
+            <view class='bottom-goods'>
+                <view class='goods-price'>
+                    <text class='price'> ¥ 1000 </text>
+                    <text class='number'>x1</text>
+                </view>
+            </view>
+        </view>
+    </navigator>
+</view>
+
+<view class="order-good-total">
+    <view class="o-total-list">
+        <view class="o-coupon-name">优惠券</view>
+        <view class="o-coupon-format">
+            <picker bindchange="couponSlt" value="{{couponIndex}}" range="{{coupon}}">
+                <view>{{coupon[couponIndex]}}</view>
+            </picker>
+        </view>
+    </view>
+    <view class="o-total-list">
+        <view class="o-express-name">配送方式</view>
+        <view class="o-express-format">
+            <picker bindchange="expressSlt" value="{{expressIndex}}" range="{{express}}">
+                <view>{{express[expressIndex]}}</view>
+            </picker>
+        </view>
+    </view>
+    <view class="o-remark">
+        <view class="o-remark-name">备注:</view>
+        <input type="text" placeholder="选填:对本次交易的说明" />
+    </view>
+    <view class="submit-order">
+        <view class="submit-total-price">
+            <text>合计金额:</text>
+            <text class="red-price">¥19.80</text>
+        </view>
+        <view class="submit-btn">提交订单</view>
+    </view>
+</view>

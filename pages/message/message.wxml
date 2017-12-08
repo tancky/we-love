@@ -1,0 +1,25 @@
+<!--pages/message/message.wxml-->
+<navigator url="/pages/newsDetail/newsDetail">
+    <view class="news">
+        <view class="news-title">欢迎来到WE LOVE小程序,更多惊喜等你来</view>
+        <view class="news-date">2017-11-11</view>
+    </view>
+</navigator>
+<navigator>
+    <view class="news">
+        <view class="news-title">欢迎来到欢迎来到WE LOVE小程序,更多惊喜等你来</view>
+        <view class="news-date">2017-11-11</view>
+    </view>
+</navigator>
+<navigator>
+    <view class="news">
+        <view class="news-title">欢迎来到WE LOVE小程序,更多惊喜等你来</view>
+        <view class="news-date">2017-11-11</view>
+    </view>
+</navigator>
+<navigator>
+    <view class="news">
+        <view class="news-title">欢迎来到WE LOVE小程序,更多惊喜等你来</view>
+        <view class="news-date">2017-11-11</view>
+    </view>
+</navigator>

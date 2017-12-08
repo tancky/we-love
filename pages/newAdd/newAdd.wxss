@@ -1,0 +1,65 @@
+/* pages/newAdd/newAdd.wxss */
+
+.new-add {
+    background-color: #fff;
+}
+
+.new-add-list {
+    display: flex;
+    align-items: center;
+    padding: 20rpx;
+    border-bottom: 1px solid #eee;
+    font-size: 30rpx;
+}
+
+.new-add-list text {
+    flex: 0 0 30%;
+}
+
+.new-add-list input {
+    flex:1;
+}
+
+.new-add-list image {
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.new-add-list .add-api {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+.new-add-list .add-api image {
+  flex: 0 0 40rpx;
+  width: 40rpx;
+  height: 40rpx;
+  margin-left: 20rpx;
+}
+
+.new-add-list .add-api textarea {
+    width: 420rpx;
+    height: 80rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.add-btn {
+    width: 94%;
+    height: 70rpx;
+    line-height: 70rpx;
+    margin: 30rpx auto;
+    background-color: #f1335a;
+    color: #fff;
+}
+
+.new-add-list:last-child {
+    justify-content: space-between;
+}
+
+.new-add-list .switch-btn {
+    color: #f1335a;
+}

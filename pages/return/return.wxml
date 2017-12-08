@@ -1,0 +1,35 @@
+<!--pages/return/return.wxml-->
+<view class="return-head">
+    <text>七天无理由退货,请退货给商家</text>
+    <text class="counter">还剩3天6时23分</text>
+</view>
+<view class="return-address">
+    <view class="r-title">商家已同意退货,请尽早退货</view>
+    <view class="r-add">
+        <image src="../../img/loc_icon.png"></image>
+        <view class="r-add-info">
+            <view class="r-top-info">
+                <text class="r-receiver">收货人: 赵四</text>
+                <text class="r-phone">1383838438</text>
+            </view>
+            <view class="r-down-info">广东省深圳市罗湖区东门解放路2001号太阳广场1楼</view>
+        </view>
+    </view>
+</view>
+<view class="return-detail">
+    <view class="r-msg">退款信息</view>
+    <view class="r-detail-info">
+        <image src="../../img/order_pic.jpg"></image>
+        <view class="r-right">
+            <view class="r-right-title">东具冰淇淋粉 自制家用商用雪糕粉软冰雪糕粉软冰激凌圣原料批发1000商用雪糕粉软冰激凌圣代甜筒原料批发1000</view>
+            <view class="r-right-format">巧克力味</view>
+        </view>
+    </view>
+    <view class="r-detail-data">
+        <text class="r-reason">退款原因: 7天无理由退货 7天无理由退货</text>
+        <text class="r-money">退款金额: ¥ 19.90</text>
+        <text class="r-number">申请件数: 1</text>
+        <text class="r-time">申请时间: 2017-11-27 15:40</text>
+        <text class="r-bianhao">退款编号: 1541651561848451231848645</text>
+    </view>
+</view>

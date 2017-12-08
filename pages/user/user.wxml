@@ -1,0 +1,97 @@
+<!--pages/user/user.wxml-->
+
+<!--user-header-->
+<view class='user-head'>
+    <view class='user-head-pic-wrap'>
+        <image src='../../img/photo.jpg' class='user-head-pic'></image>
+        <text class='user-name'>钱多多钱多多钱多多</text>
+    </view>
+</view>
+
+<!--user-order-nav-->
+<view class="user-nav-wrap">
+    <view class="user-nav-title">
+        <navigator url='/pages/shopCart/shopCart'>
+            <view class='user-list'>
+                <view class='left-list'>
+                    <text class='option-name'>我的订单</text>
+                </view>
+                <navigator url='/pages/moreOrders/moreOrders'>
+                    <view class='right-list'>
+                        <text>查看更多订单</text>
+                        <image src='../../img/enter.png'></image>
+                    </view>
+                </navigator>
+            </view>
+        </navigator>
+    </view>
+    <view class='user-nav'>
+        <view class='nav-list'>
+            <navigator url='/pages/payment/payment'>
+                <image src='../../img/payment.png'></image>
+                <view class='nav-name'>待付款</view>
+            </navigator>
+        </view>
+        <view class='nav-list'>
+            <navigator url='/pages/shipping/shipping'>
+                <image src='../../img/shipping.png' class='order-pic'></image>
+                <view class='nav-name'>待发货</view>
+            </navigator>
+        </view>
+        <view class='nav-list'>
+            <navigator url='/pages/recieve/recieve'>
+                <image src='../../img/receive.png'></image>
+                <view class='nav-name'>待收货</view>
+            </navigator>
+        </view>
+        <view class='nav-list'>
+            <navigator url='/pages/myReturn/myReturn'>
+                <image src='../../img/return.png'></image>
+                <view class='nav-name'>退货</view>
+            </navigator>
+        </view>
+    </view>
+</view>
+
+
+<!--user-option-->
+<view class='option-cont'>
+        <view class='option-list' bindtap="goCart">
+            <view class='left-list'>
+                <text class='option-name'>购物车</text>
+            </view>
+            <view class='right-list'>
+                <image src='../../img/enter.png'></image>
+            </view>
+        </view>
+    <navigator url='/pages/coupon/coupon'>
+        <view class='option-list'>
+            <view class='left-list'>
+                <text class='option-name'>我的优惠券</text>
+            </view>
+            <view class='right-list'>
+                <image src='../../img/enter.png'></image>
+            </view>
+        </view>
+    </navigator>
+    <navigator url='/pages/address/address'>
+        <view class='option-list'>
+            <view class='left-list'>
+                <text class='option-name'>我的收货地址</text>
+            </view>
+            <view class='right-list'>
+                <image src='../../img/enter.png'></image>
+            </view>
+        </view>
+    </navigator>
+    <navigator url='/pages/message/message'>
+        <view class='option-list'>
+            <view class='left-list'>
+                <text class='option-name'>我的消息</text>
+            </view>
+            <view class='right-list'>
+                <image src='../../img/enter.png'></image>
+            </view>
+        </view>
+    </navigator>
+</view>
