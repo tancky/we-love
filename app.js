@@ -1,60 +1,60 @@
-//app.js
-const api = require("./utils/api.js");
+//app.js  用户登录
+
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+	// 初次加载会执行，再次进入不一定会执行
+	onLaunch: function () {
+		this.register()
+	
+	},
+	// 第次进入都会执行
+	onShow: function () {
+	
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
+	},
+	//注册
+	register: function () {
+		var that = this;
+		// Do something initial when launch.
+		//当程序开启时，自动完成注册功能 
+		wx.login({
+			success: function (res) {
+				if (res.code) {
+					//发起网络请求,注册用户
+					wx.request({
+						url: that.globalData.wxUrl + 'user',
+						data: {
+							code: res.code
+						},
+						success: function (res) {
+							try {
+								wx.setStorageSync('username', res.data.data)
+							} catch (e) {
+								wx.showToast({
+									title: 'setStorageSync fail',
+									duration: 10000
+								})
+							}
+						}, fail: function () {
+							console.log('login-errro');
+						}
+					})
+				} else {
+					wx.showToast({
+						title: '获取用户登录态失败！',
+						duration: 10000
+					})
+				}
+			}
+		});
+	},
 
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
-      this.getAbout();
-  },
-    getAbout: function () {
-        var that = this;
-        var params = {
-            data: params
-        }
-        // 测试接口
-        api.wx_userName(params)
-            .then(res => {
-            console.log(res.data)
-            return api.wx_cate()
-                .then(res => {
-                console.log(res.data)
-                return api.wx_getBus()
-                    .then(res => {
-                    console.log(res.data)
-    })
-    })
-    })
-    },
-  globalData: {
-    userInfo: null
-  }
+	//隐藏时清除缓存数据,用户名不清
+	onHide: function () {
+		
+	},
+	globalData: {
+		wxUrl: 'https://huahui.qingyy.net/welovetp/public/wx.php/',
+		imgUrl: 'https://huahui.qingyy.net/welovetp/public/',
+	
+	}
 })

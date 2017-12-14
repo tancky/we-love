@@ -1,10 +1,14 @@
 // pages/classify/classify.js
+const app = getApp()
+const common = require("../../utils/util.js");
+const imgurl = app.globalData.imgUrl;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+	  imgurl:imgurl,
       inputShowed: false,
       inputVal: ""
   },
