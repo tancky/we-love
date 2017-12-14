@@ -10,7 +10,8 @@ Page({
   data: {
 	  imgurl:imgurl,
       inputShowed: false,
-      inputVal: ""
+      inputVal: "",
+	  cateList:[],
   },
 
   /**
