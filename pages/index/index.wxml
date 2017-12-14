@@ -2,92 +2,55 @@
 
 <!--swiper-->
 <swiper indicator-dots="{{indicatorDots}}" class='swiper' indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='{{circular}}'>
-    <!--<block wx:for="{{advs}}" wx:key="index">-->
-        <swiper-item>
-            <navigator>
-                <image src="../../img/banner.jpg" class="slide-image" />
-            </navigator>
-        </swiper-item>
+  <block wx:for="{{slideShow}}" wx:key="index">
     <swiper-item>
-        <navigator>
-            <image src="../../img/banner.jpg" class="slide-image" />
-        </navigator>
+      <navigator>
+        <image src="{{imgurl+item.img}}" class="slide-image" />
+      </navigator>
     </swiper-item>
-    <swiper-item>
-        <navigator>
-            <image src="../../img/banner.jpg" class="slide-image" />
-        </navigator>
-    </swiper-item>
-    <!--</block>-->
+  </block>
 </swiper>
-
-
 <view class="wrapper">
-    <!--searchBar-->
-    <view class="search-bar">
-        <text class="place-holder">搜索商品</text>
-        <image src="../../img/search-icon.png"></image>
+  <!--searchBar-->
+  <navigator url='/pages/classify/classify'>
+    <view class="search-bar" bindtap="goSearch">
+      <text class="place-holder">搜索商品</text>
+      <image src="../../img/search-icon.png"></image>
     </view>
+  </navigator>
 
-    <!--discount-->
-    <view class="discounts">
-        <image src="../../img/discount-1.png"></image>
-        <image src="../../img/discount-2.png"></image>
-        <image src="../../img/discount-3.png"></image>
-    </view>
+  <!--discount-->
+  <view class="discounts">
+    <image src="../../img/discount-1.png"></image>
+    <image src="../../img/discount-2.png"></image>
+    <image src="../../img/discount-3.png"></image>
+  </view>
 
-    <!--advertisment-->
-    <image class="ad" src="../../img/advertising.jpg"></image>
+  <!--advertisment-->
+  <image class="ad" src="{{imgurl+adHome}}"></image>
 
-    <!--index-goodList-->
-    <view class="index-product-wrap">
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <view>
-                <image src="../../img/index-product.jpg"></image>
-                <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-                <text class="index-pro-price">¥399.00</text>
-            </view>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/order_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/particular_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/index-product.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/order_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/particular_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/particular_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-    </view>
+  <!--index-goodList-->
+  <view class="index-product-wrap">
+    <block wx:for="{{stickGood}}" wx:key="m">
+      <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
+        <view>
+          <image src="{{imgurl+item.img}}"></image>
+          <text class="index-pro-info">{{item.name}}</text>
+          <text class="index-pro-price">¥{{item.price}}</text>
+        </view>
+      </navigator>
+    </block>
 
-    <!--weui-loadmore-->
-    <!--<view class="weui-loadmore">-->
-        <!--<view class="weui-loading"></view>-->
-        <!--<view class="weui-loadmore__tips">正在加载</view>-->
-    <!--</view>-->
+  </view>
 
-    <!--weui-load-finished-->
-    <view class="weui-loadmore weui-loadmore_line">
-        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
-    </view>
+  <!--weui-loadmore-->
+  <!--<view class="weui-loadmore">-->
+  <!--<view class="weui-loading"></view>-->
+  <!--<view class="weui-loadmore__tips">正在加载</view>-->
+  <!--</view>-->
+
+  <!--weui-load-finished-->
+  <view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+  </view>
 </view>

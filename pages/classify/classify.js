@@ -12,15 +12,24 @@ Page({
       inputShowed: false,
       inputVal: "",
 	  cateList:[],
+    cateAd:[],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getCateAd();
   },
-
+  //分类页广告接口
+  getCateAd:function(){
+    var that = this;
+    common.httpG('ad/cate',{},function(data){
+      that.setData({
+        cateAd:data.data
+      })
+    })
+  },
   showInput: function () {
       this.setData({
           inputShowed: true

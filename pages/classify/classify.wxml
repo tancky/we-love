@@ -35,7 +35,9 @@
         </view>
     </view>
     <view class="classify-cont">
-        <image src="../../img/classification_banner.jpg"></image>
+    <block wx:for="{{cateAd}}" wx:key="index">
+        <image src="{{imgurl+item.img}}"></image>
+         </block>
         <text class="classify-hot">热门分类</text>
         <view class="classify-cont-list-wrap">
             <navigator url="/pages/classDetail/classDetail">
