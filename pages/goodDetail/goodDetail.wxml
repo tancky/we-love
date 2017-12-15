@@ -1,36 +1,25 @@
 <!--pages/goodDetail/goodDetail.wxml-->
 <!--swiper-->
+<import src="../../wxParse/wxParse.wxml" />
 <swiper indicator-dots="{{indicatorDots}}" class='swiper' indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" interval="{{interval}}" duration="{{duration}}" circular='{{circular}}'>
-    <!--<block wx:for="{{advs}}" wx:key="index">-->
     <swiper-item>
         <navigator>
-            <image src="../../img/particular_pic.jpg" class="slide-image" />
+            <image src="{{imgurl+goodInfo.img}}" class="slide-image" />
         </navigator>
     </swiper-item>
-    <swiper-item>
-        <navigator>
-            <image src="../../img/particular_pic.jpg" class="slide-image" />
-        </navigator>
-    </swiper-item>
-    <swiper-item>
-        <navigator>
-            <image src="../../img/particular_pic.jpg" class="slide-image" />
-        </navigator>
-    </swiper-item>
-    <!--</block>-->
 </swiper>
 
 <view class="good-wrap">
-    <view class="good-name">丹尼斯克乳酸菌 进口酸奶发酵剂酸奶菌粉</view>
-    <view class="good-price">¥ 9.90</view>
+    <view class="good-name">{{goodInfo.name}}</view>
+    <view class="good-price">¥ {{goodInfo.price}}</view>
     <view class="good-addition">
         <text class="express">快递: 免运费</text>
-        <text class="sales">销量: 69856件</text>
+        <text class="sales">销量: {{goodInfo.sales}}件</text>
     </view>
 </view>
 
 <view class="select-format">
-    <view class="select-title">已选 <text>1个</text></view>
+    <view class="select-title">已选 <text>{{inputNum}}个</text></view>
     <view class="good-format">
         <view class="good-format-slt">规格</view>
         <view class="good-format-picker">
@@ -53,7 +42,7 @@
 <view class="good-detail-title">商品详情</view>
 
 <view class="good-detail">
-    <image src="../../img/detail.jpg" mode='widthFix'></image>
+    <template is="wxParse" data="{{wxParseData:cont.nodes}}"/>
 </view>
 
 <view class="down-btn">

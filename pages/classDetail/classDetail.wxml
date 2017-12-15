@@ -1,61 +1,34 @@
 <!--pages/classDetail/classDetail.wxml-->
 <view class="class-tab">
-    <view class="class-tab-list tab-active">综合</view>
-    <view class="class-tab-list">销量</view>
-    <view class="class-tab-list">价格
-    <image src="../../img/jiantou.png"></image></view>
-    <view class="class-tab-list">新品</view>
+  <view class="class-tab-list tab-active">综合</view>
+  <view class="class-tab-list">销量</view>
+  <view class="class-tab-list">价格
+    <image src="../../img/jiantou.png"></image>
+  </view>
+  <view class="class-tab-list">新品</view>
 </view>
 
 <view class="wrapper">
-    <view class="index-product-wrap">
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <view>
-                <image src="../../img/index-product.jpg"></image>
-                <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-                <text class="index-pro-price">¥399.00</text>
-            </view>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/order_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/particular_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/index-product.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/order_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/particular_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-        <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
-            <image src="../../img/particular_pic.jpg"></image>
-            <text class="index-pro-info">德国WMF福腾宝20.991家用不锈钢全自动自制不锈钢全自动自制</text>
-            <text class="index-pro-price">¥399.00</text>
-        </navigator>
-    </view>
+  <view class="index-product-wrap">
+    <block wx:for="{{goodsList}}" wx:key="index">
+      <navigator url="/pages/goodDetail/goodDetail?good_id={{item.id}}" class="index-pro">
+        <view>
+          <image src="{{imgurl+item.img}}"></image>
+          <text class="index-pro-info">{{item.name}}</text>
+          <text class="index-pro-price">¥{{item.price}}</text>
+        </view>
+      </navigator>
+    </block>
+  </view>
 
-    <!--weui-loadmore-->
-    <!--<view class="weui-loadmore">-->
-    <!--<view class="weui-loading"></view>-->
-    <!--<view class="weui-loadmore__tips">正在加载</view>-->
-    <!--</view>-->
+  <!--weui-loadmore-->
+  <!--<view class="weui-loadmore">-->
+  <!--<view class="weui-loading"></view>-->
+  <!--<view class="weui-loadmore__tips">正在加载</view>-->
+  <!--</view>-->
 
-    <!--weui-load-finished-->
-    <view class="weui-loadmore weui-loadmore_line">
-        <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
-    </view>
+  <!--weui-load-finished-->
+  <view class="weui-loadmore weui-loadmore_line">
+    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+  </view>
 </view>

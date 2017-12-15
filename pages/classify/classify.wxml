@@ -2,104 +2,45 @@
 
 <!--search-bar-->
 <view class="weui-search-bar">
-    <view class="weui-search-bar__form">
-        <view class="weui-search-bar__box">
-            <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-            <input type="text" class="weui-search-bar__input" placeholder="搜索商品" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-            <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                <icon type="clear" size="14"></icon>
-            </view>
-        </view>
-        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-            <icon class="weui-icon-search" type="search" size="14"></icon>
-            <view class="weui-search-bar__text">搜索</view>
-        </label>
+  <view class="weui-search-bar__form">
+    <view class="weui-search-bar__box">
+      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+      <input type="text" class="weui-search-bar__input" placeholder="搜索商品" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+        <icon type="clear" size="14"></icon>
+      </view>
     </view>
-    <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+      <icon class="weui-icon-search" type="search" size="14"></icon>
+      <view class="weui-search-bar__text">搜索</view>
+    </label>
+  </view>
+  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
 </view>
 
 <!--classify-->
 <view class="classify-wrap">
-    <view class="classify-title">
-        <view class="classify-title-list">
-            <text class="classify-title-acive">热门推荐</text>
-        </view>
-        <view class="classify-title-list">
-            <text>酸奶机</text>
-        </view>
-        <view class="classify-title-list">
-            <text>酸奶粉</text>
-        </view>
-        <view class="classify-title-list">
-            <text>冰淇淋粉</text>
-        </view>
-    </view>
-    <view class="classify-cont">
+  <view class="classify-title">
+    <block wx:for="{{firstCate}}" wx:key="index">
+      <view class="classify-title-list" data-pid='{{item.id}}' bindtap='changeCate' data-name='{{item.name}}'>
+        <text class="{{item.id == cateSlt ? 'classify-title-acive' : 'classify-title-list' }}">{{item.name}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="classify-cont">
     <block wx:for="{{cateAd}}" wx:key="index">
-        <image src="{{imgurl+item.img}}"></image>
-         </block>
-        <text class="classify-hot">热门分类</text>
-        <view class="classify-cont-list-wrap">
-            <navigator url="/pages/classDetail/classDetail">
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-            <navigator>
-                <view class="classify-cont-list">
-                    <image src="../../img/classification_pic.jpg"></image>
-                    <text>冰淇淋粉</text>
-                </view>
-            </navigator>
-        </view>
+      <image src="{{imgurl+item.img}}"></image>
+    </block>
+    <text class="classify-hot">{{parentCate}}</text>
+    <view class="classify-cont-list-wrap">
+      <block wx:for="{{defaultCate}}" wx:key="ckey">
+        <navigator url="/pages/classDetail/classDetail?cate_id={{item.id}}">
+          <view class="classify-cont-list">
+            <image src="{{imgurl+item.img}}"></image>
+            <text>{{item.name}}</text>
+          </view>
+        </navigator>
+      </block>
     </view>
+  </view>
 </view>
