@@ -20,11 +20,9 @@
   </navigator>
 
   <!--discount-->
-  <view class="discounts">
-    <image src="../../img/discount-1.png"></image>
-    <image src="../../img/discount-2.png"></image>
-    <image src="../../img/discount-3.png"></image>
-  </view>
+  <navigator url='/pages/discounts/discounts' class="discounts">
+    <image src="../../img/bg.png"></image>
+  </navigator>
 
   <!--advertisment-->
   <image class="ad" src="{{imgurl+adHome}}"></image>

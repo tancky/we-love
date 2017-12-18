@@ -1,0 +1,49 @@
+/* pages/discounts/discounts.wxss */
+
+.discounts-list {
+  width: 92%;
+  margin: 20rpx auto;
+  height: 120rpx;
+  display: flex;
+  background-color: #fff;
+}
+.d-left-cont {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 12rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+}
+.d-left-cont .d-left-price {
+  color: #ff3760;
+  font-size: 32rpx;
+}
+.d-left-cont .d-left-price text {
+  font-size: 26rpx;
+  margin-left: 10rpx;
+}
+.d-right-now {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff3760;
+  font-size: 30rpx;
+  color: #fff;
+  padding: 0 14rpx;
+  letter-spacing: 2rpx;
+}
+.d-right-now-active {
+  flex: 0 0 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  padding: 0 14rpx;
+  letter-spacing: 2rpx;
+  background-color: #eee;
+  color: #ff3760;
+  transition: all .5s;
+}
