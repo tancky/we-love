@@ -1,0 +1,10 @@
+<!--pages/discounts/discounts.wxml-->
+<block wx:for="{{receiveList}}" wx:key='key'>
+  <view class='discounts-list'>
+    <view class='d-left-cont'>
+      <view class='d-left-title'>{{item.title}}</view>
+      <view class='d-left-price'>¥{{item.price}} <text>满{{item.total_price}}可用</text></view>
+    </view>
+    <view class='{{ receive ? "d-right-now-active" : "d-right-now"}}' bindtap='getReceive'>{{receiveDiscounts}}</view>
+  </view>
+</block>
