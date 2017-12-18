@@ -1,4 +1,4 @@
-// pages/goodDetail/goodDetail.js
+// pages/homeGood/homeGood.js
 const app = getApp()
 const common = require("../../utils/util.js");
 const imgurl = app.globalData.imgUrl;
@@ -22,7 +22,7 @@ Page({
     inputNum: 1,
     decrease: 'decrease',
     goodInfo: [],
-    imgurl: imgurl,
+    imgurl:imgurl,
   },
 
   /**
@@ -39,10 +39,10 @@ Page({
       that.setData({
         goodInfo: data.data,
         cont: WxParse.wxParse('cont', 'html', data.data.desc, that, 5),
-        arr: data.data.property
+        arr:data.data.property
       })
     })
-
+    
   },
   changeFormat(e) {
     this.setData({
@@ -54,7 +54,7 @@ Page({
       numberIndex: e.detail.value
     })
   },
-  decrease(e) {
+  decrease() {
     var that = this;
     var inputNum = that.data.inputNum;
     if (inputNum > 1) {
@@ -77,13 +77,6 @@ Page({
       inputNum: inputNum,
       decrease: decrease
     })
-  },
-  //点击加入购物车接口
-  addCart(e) {
-    wx.navigateTo({
-      url: 'pages/index/index',
-    })
-    // console.log(e);
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

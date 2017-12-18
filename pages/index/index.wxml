@@ -32,7 +32,7 @@
   <!--index-goodList-->
   <view class="index-product-wrap">
     <block wx:for="{{stickGood}}" wx:key="m">
-      <navigator url="/pages/goodDetail/goodDetail" class="index-pro">
+      <navigator url="/pages/homeGood/homeGood?good_id={{item.id}}" class="index-pro">
         <view>
           <image src="{{imgurl+item.img}}"></image>
           <text class="index-pro-info">{{item.name}}</text>
@@ -40,7 +40,6 @@
         </view>
       </navigator>
     </block>
-
   </view>
 
   <!--weui-loadmore-->

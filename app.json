@@ -14,7 +14,8 @@
     "pages/moreOrders/moreOrders",
     "pages/coupon/coupon",
     "pages/shopCart/shopCart",
-    "pages/classify/classify"
+    "pages/classify/classify",
+    "pages/homeGood/homeGood"
   ],
   "window":{
     "backgroundTextStyle":"light",
