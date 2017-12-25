@@ -78,6 +78,27 @@ Page({
       decrease: decrease
     })
   },
+  //点击加入购物车接口
+  addCart(e) {
+    var that = this
+    var username = common.getUserName();
+    var mai = e.target.dataset.mai
+    var good_id = e.target.dataset.good_id;
+    var property_id = e.target.dataset.property_id;
+    var num = that.data.inputNum;
+    common.httpP('cart/save', { username: username, good_id: good_id, num: num, property_id: property_id }, function (data) {
+      if (data.code == 0) {
+        wx.showToast({
+          title: '加入购物车成功',
+        })
+        if (mai == 'true') {
+          wx.switchTab({
+            url: '/pages/shopCart/shopCart',
+          })
+        }
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

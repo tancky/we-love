@@ -1,4 +1,4 @@
-// pages/submitOrder/submitOrder.js
+// pages/submit_from_orders/submit_from_orders.js
 var common = require("../../utils/util.js");
 var app = getApp();
 const imgurl = app.globalData.imgUrl;
@@ -10,120 +10,81 @@ Page({
    * 页面的初始数据
    */
   data: {
-    arr: [],
+    imgurl: imgurl,
+    orderAddress: {},
+    orderGoodList: [],
+    from_: 'to_pay', //默认来自‘去支付’
+    payNowSt: false, //立即支付按扭状态
     express: ['快递包邮'],
     expressIndex: 0,
     index: 0,
-    address: null,
+    arr: [],
     sum_price_all: 0,
-    haveCoupon: 1,
-    sumitOrderSt: false, //默认没有提交，提交后变为true,
-    GoodList: [],
-    notes: '',
+    order:'',
+    coupon:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var GoodList = wx.getStorageSync(CART_GOOD)
-    var sum_price_all = wx.getStorageSync('sum_price_all')
-    if (!GoodList) {
-      wx.navigateBack({})
-    }
-    this.setData({ GoodList: GoodList, sum_price_all: sum_price_all })
-    this.getCouponList()
-    
-  },
-  couponSlt(e) {
-    this.setData({
-      index: e.detail.value
-    })
-  },
-  expressSlt(e) {
-    this.setData({
-      expressIndex: e.detail.value
-    })
-  },
-  //获取用户输入的备注
-  notesInput: function (e) {
-    this.setData({
-      notes: e.detail.value
-    })
-  },
-  //获取用户优惠券接口
-  getCouponList: function () {
-    var that = this
-    var username = common.getUserName()
-    var sum_price_all = that.data.sum_price_all
-    common.httpG('coupon/usable', { username: username, sum_price_all: sum_price_all }, function (data) {
-      if (data.code == 0) {
-        that.setData({
-          arr: data.data
-        })
-      } else {
-        that.setData({
-          haveCoupon: 0
-        })
-      }
-    })
-  },
-  //获取默认地址api接口
-  getAddress: function () {
-    var that = this;
-    var username = common.getUserName()
-    common.httpG('address/default_address', {
-      username: username,
-    }, function (data) {
-      if (data.code == 0) {
-        that.setData({
-          address: data.data,
-        })
-      }
-    })
-  },
-  //改地址
-  tapAddress: function (e) {
-    wx.navigateTo({
-      url: '/pages/address/address?from_=orderConfirm',
-    })
-  },
-  //提交订单事件
-  submitOrder: function (e) {
-    var that = this
-    if (that.data.address == null) {
-      wx.showToast({
-        title: '请添加地址',
+    var order_id = options.order_id;
+    var address_id = options.address_id
+    this.getOrderAddress(address_id)
+    this.getOrderGoodList(order_id)
+    this.getUseCoupon(order_id)
+    if (options.from_ == 'look_detail') {
+      this.setData({
+        from_: options.from_,
       })
-      return;
     }
-    that.setData({
-      submitOrderSt: true
-    })
-    var username = common.getUserName()
-    var GoodList = wx.getStorageSync(CART_GOOD)
-    var sum_price_all = wx.getStorageSync('sum_price_all')
-    var coupon_id = e.target.dataset.coupon_id;
-    common.httpG('order/save', {
-      username: username,
-      GoodList: GoodList,
-      sum_price_all: sum_price_all,
-      address_id: that.data.address.id,
-      coupon_id: coupon_id,
-      notes: that.data.notes
+  },
+  //取商家订单的商品
+  getOrderGoodList: function (order_id) {
+    var that = this
+    common.httpG('order/read', {
+      order_id: order_id,
     }, function (data) {
       if (data.code == 0) {
-        //发起支付
-        that.payNow(data.data, username)
-      } else {
         that.setData({
-          sumitOrderSt: false,
+          order: data.data.order,
+          orderGoods: data.data.order_goods,
+          sum_price_all: data.data.order.sum_price
         })
       }
     })
   },
+  //获取订单是否使用优惠券
+  getUseCoupon: function (order_id){
+    var that = this
+    common.httpG('order/get_coupon',{order_id:order_id},function(data){
+      that.setData({
+        coupon:data.data
+      })
+    })
+  },
+  //取商家订单的地址
+  getOrderAddress: function (address_id) {
+    var that = this
+    common.httpG('address/read', {
+      address_id: address_id,
+    }, function (data) {
+      if (data.code == 0) {
+        that.setData({
+          orderAddress: data.data
+        })
+      }
+    })
+  },
+  
   //立即支付
-  payNow: function (order_id, username) {
+  tapPayNow: function () {
+    this.setData({
+      payNowSt: true,
+    })
+    var order_id = this.data.order.id;
+    var username = common.getUserName();
+    var that = this
     wx.showLoading({
       title: '请求支付中...',
     })
@@ -150,10 +111,12 @@ Page({
                 data: {
                   order_id: order_id,
                   st: 'paid',
+                  type_: that.data.type_,
+                  username: username,
                 },
                 success: function (res) {
                   wx.redirectTo({
-                    url: '/pages/moreOrders/moreOrders',
+                    url: '/pages/orders/orders',
                   })
                 }
               })
@@ -163,14 +126,18 @@ Page({
             }
           })
         } else {
+          that.setData({
+            payNowSt: false,
+          })
           wx.hideLoading();
           wx.showToast({
-            title: data.msg,
+            title: res.data.msg,
           })
         }
 
       }
     })
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -183,7 +150,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getAddress()
+
   },
 
   /**

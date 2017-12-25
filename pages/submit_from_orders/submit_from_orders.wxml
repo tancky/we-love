@@ -1,12 +1,12 @@
-<!--pages/submitOrder/submitOrder.wxml-->
+<!--pages/submit_from_orders/submit_from_orders.wxml-->
 <view class="order-head" bindtap='tapAddress'>
   <image src="../../img/loc.png" class="left-bg"></image>
   <view class="order-title-wrap">
     <view class="order-title">
-      <text class="order-receive-name">收货人: {{address.truename}}</text>
-      <text class="order-receive-num">{{address.mobile}}</text>
+      <text class="order-receive-name">收货人: {{orderAddress.truename}}</text>
+      <text class="order-receive-num">{{orderAddress.mobile}}</text>
     </view>
-    <view class="order-receive-add">收货地址: {{address.pcd}}</view>
+    <view class="order-receive-add">收货地址: {{orderAddress.pcd}}</view>
   </view>
   <image src="../../img/enter.png" class="right-bg"></image>
 </view>
@@ -14,17 +14,22 @@
   <image class="line" src="../../img/line.png"></image>
 </view>
 <view class="order-goods-wrap">
-  <block wx:for="{{GoodList}}" wx:key="index">
+  <block wx:for="{{orderGoods}}" wx:key="index">
     <view class="goods-wrap-nav">
       <view class="goods-img-nav goods-cell">
         <view class='goods-pic'>
-          <image src='../../img/cart_pic.jpg'></image>
+          <image src='{{imgurl+item.img}}'></image>
         </view>
       </view>
       <view class='goods goods-cell'>
         <view class='top-goods'>
           <view class='goods-name'>{{item.name}}</view>
-          <view class='format'>{{item.property}}</view>
+          <block wx:if="{{item.property_id == 0}}">
+            <view class='format'></view>
+          </block>
+          <block wx:else>
+            <view class='format'>{{item.value}}</view>
+          </block>
         </view>
         <view class='bottom-goods'>
           <view class='goods-price'>
@@ -38,13 +43,11 @@
 </view>
 
 <view class="order-good-total">
-  <block wx:if="{{haveCoupon == 1}}">
+  <block wx:if="{{order.coupon_id == 0}}">
     <view class="o-total-list">
       <view class="o-coupon-name">优惠券</view>
       <view class="o-coupon-format">
-        <picker bindchange="couponSlt" value="{{index}}" range="{{arr}}" range-key="result">
-          <view>{{arr[index].result}}</view>
-        </picker>
+        没有使用优惠券
       </view>
     </view>
   </block>
@@ -52,7 +55,7 @@
     <view class="o-total-list">
       <view class="o-coupon-name">优惠券</view>
       <view class="o-coupon-format">
-        暂无可使用的优惠券
+        使用了{{coupon.result}}的优惠券
       </view>
     </view>
   </block>
@@ -66,13 +69,25 @@
   </view>
   <view class="o-remark">
     <view class="o-remark-name">备注:</view>
-    <input type="text" name="notes" placeholder="选填:对本次交易的说明" bindinput ="notesInput"/>
+    {{order.notes}}
   </view>
+  <block wx:if="{{from_ == 'look_detail'}}">
+    <view class="o-remark">
+      <view class="o-remark-name">订单状态:</view>
+      {{order.st}}
+    </view>
+    <view class="o-remark">
+      <view class="o-remark-name">订单号:</view>
+      {{order.orderno}}
+    </view>
+  </block>
   <view class="submit-order">
     <view class="submit-total-price">
       <text>合计金额:</text>
-      <text class="red-price">¥{{sum_price_all}}</text>
+      <text class="red-price">¥{{order.sum_price}}</text>
     </view>
-    <view class="submit-btn" bindtap='submitOrder' disabled='{{sumitOrderSt}}' data-coupon_id='{{arr[index].coupon_id}}'>提交订单</view>
+    <block wx:if="{{from_=='to_pay'}}">
+      <view class="submit-btn" bindtap='tapPayNow' disabled='{{payNowSt}}' data-coupon_id='{{arr[index].coupon_id}}'>提交订单</view>
+    </block>
   </view>
 </view>

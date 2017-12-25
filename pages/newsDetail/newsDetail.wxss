@@ -1,4 +1,5 @@
 /* pages/newsDetail/newsDetail.wxss */
+@import "/wxParse/wxParse.wxss";
 page {
     background-color: #fff;
 }

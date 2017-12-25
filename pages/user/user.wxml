@@ -3,8 +3,8 @@
 <!--user-header-->
 <view class='user-head'>
     <view class='user-head-pic-wrap'>
-        <image src='../../img/photo.jpg' class='user-head-pic'></image>
-        <text class='user-name'>钱多多钱多多钱多多</text>
+        <image src='{{userInfo.avatarUrl}}' class='user-head-pic'></image>
+        <text class='user-name'>{{userInfo.nickName}}</text>
     </view>
 </view>
 
@@ -27,25 +27,25 @@
     </view>
     <view class='user-nav'>
         <view class='nav-list'>
-            <navigator url='/pages/payment/payment'>
+            <navigator url='/pages/moreOrders/moreOrders?username={{username}}&st=1'>
                 <image src='../../img/payment.png'></image>
                 <view class='nav-name'>待付款</view>
             </navigator>
         </view>
         <view class='nav-list'>
-            <navigator url='/pages/shipping/shipping'>
+            <navigator url='/pages/moreOrders/moreOrders?username={{username}}&st=2'>
                 <image src='../../img/shipping.png' class='order-pic'></image>
                 <view class='nav-name'>待发货</view>
             </navigator>
         </view>
         <view class='nav-list'>
-            <navigator url='/pages/recieve/recieve'>
+            <navigator url='/pages/moreOrders/moreOrders?username={{username}}&st=3'>
                 <image src='../../img/receive.png'></image>
-                <view class='nav-name'>待收货</view>
+                <view class='nav-name'>已发货</view>
             </navigator>
         </view>
         <view class='nav-list'>
-            <navigator url='/pages/myReturn/myReturn'>
+            <navigator url='/pages/myReturn/myReturn?username={{username}}'>
                 <image src='../../img/return.png'></image>
                 <view class='nav-name'>退货</view>
             </navigator>

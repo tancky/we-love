@@ -1,20 +1,31 @@
 // pages/coupon/coupon.js
+const app = getApp()
+const common = require("../../utils/util.js");
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    List:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getList()
   },
-
+  //获取我的优惠券接口
+  getList:function(){
+    var that = this
+    var username = common.getUserName();
+    common.httpG('coupon/my',{username:username},function(data){
+      that.setData({
+        List:data.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

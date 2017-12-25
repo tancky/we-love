@@ -2,105 +2,63 @@
 
 <!--order-tab-->
 <view class="order-tab">
-    <view class="order-tab-option o-active">全部订单</view>
-    <view class="order-tab-option">待付款</view>
-    <view class="order-tab-option">待发货</view>
-    <view class="order-tab-option">已发货</view>
-    <view class="order-tab-option">已完成</view>
+  <view class="{{currentTab==0 ? 'order-tab-option o-active' : 'order-tab-option'}}" data-current='0' bindtap='switchNav'>全部订单</view>
+  <view class="{{currentTab==1 ? 'order-tab-option o-active' : 'order-tab-option'}}" data-current='1' bindtap='switchNav'>待付款</view>
+  <view class="{{currentTab==2 ? 'order-tab-option o-active' : 'order-tab-option'}}" data-current='2' bindtap='switchNav'>待发货</view>
+  <view class="{{currentTab==3 ? 'order-tab-option o-active' : 'order-tab-option'}}" data-current='3' bindtap='switchNav'>已发货</view>
+  <view class="{{currentTab==4 ? 'order-tab-option o-active' : 'order-tab-option'}}" data-current='4' bindtap='switchNav'>已完成</view>
 </view>
-
-<!--order-detail-->
-<view class="order-list">
-    <view class="o-wrap">
-        <view class="o-title">
+<block wx:if="{{orders.length>0}}">
+  <block wx:for="{{orders}}" wx:key="id" wx:for-item="orderGoods">
+    <!--order-detail-->
+      <view class="order-list">
+        <view class="o-wrap">
+          <view class="o-title">
             <text class="o-title-name">WE LOVE 商城</text>
-            <text class="o-status">等待买家付款</text>
-        </view>
-        <view class="o-info-wrap">
-            <image src="../../img/order_pic.jpg"></image>
-            <view class="o-info">
-                <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                <text class="o-format">规格: 巧克力</text>
-                <text class="o-number">数量: 1</text>
+            <text class="o-status">{{orderGoods.st}}</text>
+          </view>
+          <block wx:for="{{orderGoods.order_good}}" wx:key="good_id" wx:for-item="good" wx:for-index="good_index">
+            <view class="o-info-wrap">
+              <image src="{{imgurl+good.img}}"></image>
+              <view class="o-info">
+                <text class="o-good-name">{{good.name}}</text>
+                <block wx:if="{{good.property_id != 0}}">
+                  <text class="o-format">规格: {{good.property}}</text>
+                </block>
+                <block wx:else>
+                  <text class="o-format"></text>
+                </block>
+                <text class="o-number">数量: {{good.num}}</text>
+              </view>
             </view>
+          </block>
+          <view class="o-total">
+            <text class="o-total-number">共{{orderGoods.total_num}}件商品</text>
+            <text class="o-total-price">合计: <text class="o-red-price">¥ {{orderGoods.sum_price}}</text></text>
+          </view>
+          <view class="o-detail">
+            <block wx:if="{{orderGoods.st == '待支付'}}">
+              <text class="cancel-detail" bindtap='cancelOrder' data-order_id='{{orderGoods.id}}'>取消订单</text>
+              <text class="go-pay" bindtap='orderConfirm' data-order_id="{{orderGoods.id}}" data-address_id="{{orderGoods.address_id}}">去支付</text>
+            </block>
+            <block wx:if="{{orderGoods.st == '已支付'  && orderGoods.goodst == '没发货'}}">
+              <text class="go-pay" bindtap='promptlyRefund' data-order_id="{{orderGoods.id}}">立即退款</text>
+            </block>
+            <block wx:if="{{orderGoods.st == '已支付' && orderGoods.goodst == '已发货'}}">
+              <text class="go-pay" bindtap="goodConfirm" data-order_id="{{orderGoods.id}}">确认收货</text>
+            </block>
+            <block wx:if="{{orderGoods.st == '已支付' && orderGoods.goodst == '已收货'}}">
+              <text class="go-pay" bindtap="tapRefund" data-order_id="{{orderGoods.id}}">申请退货</text>
+            </block>
+            <block wx:if="{{orderGoods.goodst == '已收货' || orderGoods.st == '用户取消'}}">
+              <text class="go-pay" bindtap="orderDelete" data-order_id="{{orderGoods.id}}">删除</text>
+            </block>
+            <text class="cancel-detail" data-order_id="{{orderGoods.id}}" data-address_id="{{orderGoods.address_id}}" bindtap="lookDetail">订单详情</text>
+          </view>
         </view>
-        <view class="o-total">
-            <text class="o-total-number">共1件商品</text>
-            <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-        </view>
-        <view class="o-detail">
-            <text class="cancel-detail">取消订单</text>
-            <text class="go-pay">去支付</text>
-        </view>
-    </view>
-</view>
-<view class="order-list">
-    <view class="o-wrap">
-        <view class="o-title">
-            <text class="o-title-name">WE LOVE 商城</text>
-            <text class="o-status">等待买家付款</text>
-        </view>
-        <view class="o-info-wrap">
-            <image src="../../img/order_pic.jpg"></image>
-            <view class="o-info">
-                <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                <text class="o-format">规格: 巧克力</text>
-                <text class="o-number">数量: 1</text>
-            </view>
-        </view>
-        <view class="o-total">
-            <text class="o-total-number">共1件商品</text>
-            <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-        </view>
-        <view class="o-detail">
-            <text class="cancel-detail">取消订单</text>
-        </view>
-    </view>
-</view>
-<view class="order-list">
-    <view class="o-wrap">
-        <view class="o-title">
-            <text class="o-title-name">WE LOVE 商城</text>
-            <text class="o-status">等待买家付款</text>
-        </view>
-        <view class="o-info-wrap">
-            <image src="../../img/order_pic.jpg"></image>
-            <view class="o-info">
-                <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                <text class="o-format">规格: 巧克力</text>
-                <text class="o-number">数量: 1</text>
-            </view>
-        </view>
-        <view class="o-total">
-            <text class="o-total-number">共1件商品</text>
-            <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-        </view>
-        <view class="o-detail">
-            <text class="go-pay">确认收货</text>
-        </view>
-    </view>
-</view>
-<view class="order-list">
-    <view class="o-wrap">
-        <view class="o-title">
-            <text class="o-title-name">WE LOVE 商城</text>
-            <text class="o-status">等待买家付款</text>
-        </view>
-        <view class="o-info-wrap">
-            <image src="../../img/order_pic.jpg"></image>
-            <view class="o-info">
-                <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                <text class="o-format">规格: 巧克力</text>
-                <text class="o-number">数量: 1</text>
-            </view>
-        </view>
-        <view class="o-total">
-            <text class="o-total-number">共1件商品</text>
-            <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-        </view>
-        <view class="o-detail">
-            <text class="cancel-detail">申请退款</text>
-        </view>
-    </view>
-</view>
-
+      </view>
+  </block>
+</block>
+<block wx:else>
+  暂无订单,快去选购吧
+</block>

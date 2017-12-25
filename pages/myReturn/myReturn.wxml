@@ -1,90 +1,37 @@
 <!--pages/myReturn/myReturn.wxml-->
-<navigator url="/pages/return/return">
-    <view class="order-list">
+<block wx:if="{{refundOrder.length>0}}">
+  <block wx:for="{{refundOrder}}" wx:for-item="order" wx:key="index">
+    <navigator url="/pages/return/return?order_id={{order.id}}">
+      <view class="order-list">
         <view class="o-wrap">
-            <view class="o-title">
-                <text class="o-title-name">WE LOVE 商城</text>
-                <text class="o-status">退货中</text>
-            </view>
+          <view class="o-title">
+            <text class="o-title-name">WE LOVE 商城</text>
+            <text class="o-status">{{order.st}}</text>
+          </view>
+          <block wx:for="{{order.order_good}}" wx:for-item="ordergood" wx:key='good'>
             <view class="o-info-wrap">
-                <image src="../../img/order_pic.jpg"></image>
-                <view class="o-info">
-                    <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                    <text class="o-format">规格: 巧克力</text>
-                    <text class="o-number">数量: 1</text>
-                </view>
+              <image src="{{imgurl + ordergood.img}}"></image>
+              <view class="o-info">
+                <text class="o-good-name">{{ordergood.name}}</text>
+                <block wx:if="{{ordergood.property == 0}}">
+                  <text class="o-format"></text>
+                </block>
+                <block wx:else>
+                  <text class="o-format">规格: {{ordergood.property}}</text>
+                </block>
+                <text class="o-number">数量: {{ordergood.num}}</text>
+              </view>
             </view>
-            <view class="o-total">
-                <text class="o-total-number">共1件商品</text>
-                <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-            </view>
+          </block>
+          <view class="o-total">
+            <text class="o-total-number">共1件商品</text>
+            <text class="o-total-price">合计: <text class="o-red-price">¥ {{order.sum_price}}</text></text>
+          </view>
         </view>
-    </view>
-</navigator>
-<navigator>
-    <view class="order-list">
-        <view class="o-wrap">
-            <view class="o-title">
-                <text class="o-title-name">WE LOVE 商城</text>
-                <text class="o-status">退货中</text>
-            </view>
-            <view class="o-info-wrap">
-                <image src="../../img/order_pic.jpg"></image>
-                <view class="o-info">
-                    <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                    <text class="o-format">规格: 巧克力</text>
-                    <text class="o-number">数量: 1</text>
-                </view>
-            </view>
-            <view class="o-total">
-                <text class="o-total-number">共1件商品</text>
-                <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-            </view>
-        </view>
-    </view>
-</navigator>
-<navigator>
-    <view class="order-list">
-        <view class="o-wrap">
-            <view class="o-title">
-                <text class="o-title-name">WE LOVE 商城</text>
-                <text class="o-status">退货中</text>
-            </view>
-            <view class="o-info-wrap">
-                <image src="../../img/order_pic.jpg"></image>
-                <view class="o-info">
-                    <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                    <text class="o-format">规格: 巧克力</text>
-                    <text class="o-number">数量: 1</text>
-                </view>
-            </view>
-            <view class="o-total">
-                <text class="o-total-number">共1件商品</text>
-                <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-            </view>
-        </view>
-    </view>
-</navigator>
-<navigator>
-    <view class="order-list">
-        <view class="o-wrap">
-            <view class="o-title">
-                <text class="o-title-name">WE LOVE 商城</text>
-                <text class="o-status">退货中</text>
-            </view>
-            <view class="o-info-wrap">
-                <image src="../../img/order_pic.jpg"></image>
-                <view class="o-info">
-                    <text class="o-good-name">东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉东距冰淇淋粉</text>
-                    <text class="o-format">规格: 巧克力</text>
-                    <text class="o-number">数量: 1</text>
-                </view>
-            </view>
-            <view class="o-total">
-                <text class="o-total-number">共1件商品</text>
-                <text class="o-total-price">合计: <text class="o-red-price">¥ 30.20</text></text>
-            </view>
-        </view>
-    </view>
-</navigator>
-
+      </view>
+    </navigator>
+  </block>
+</block>
+<block wx:else>
+  暂无退货订单
+</block>

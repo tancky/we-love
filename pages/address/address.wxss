@@ -25,6 +25,7 @@
 .add-default {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 30rpx 0;
 }
 
@@ -39,6 +40,7 @@
 }
 
 .add-left-cont text {
+  line-height: 35rpx;
     margin-left: 15rpx;
 }
 .add-left-cont .set-default {
@@ -46,7 +48,6 @@
 }
 
 .add-right-cont {
-    display: flex;
     color: #666;
     font-size: 28rpx;
 }

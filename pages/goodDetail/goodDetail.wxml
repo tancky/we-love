@@ -49,6 +49,6 @@
 </view>
 
 <view class="down-btn">
-  <view class="add-cart" bindtap="addCart" data-good_id="{{goodInfo.id}}">加入购物车</view>
-  <view class="pay-now">立即购买</view>
+  <view class="add-cart" bindtap="addCart" data-good_id="{{goodInfo.id}}" data-property_id="{{arr[index].id}}">加入购物车</view>
+  <view class="pay-now" bindtap='addCart' data-mai='true' data-good_id="{{goodInfo.id}}" data-property_id="{{arr[index].id}}">立即购买</view>
 </view>

@@ -1,18 +1,11 @@
 <!--pages/newsDetail/newsDetail.wxml-->
-
+<import src="../../wxParse/wxParse.wxml" />
 <view class="news-wrap">
     <view class="news-head">
-        <view class="news-page-title">欢迎来到WE LOVE 小程序,更多惊喜等你来！！</view>
-        <view class="news-page-date">2017-11-11</view>
+        <view class="news-page-title">{{info.title}}</view>
+        <view class="news-page-date">{{info.create_time}}</view>
     </view>
     <view class="news-cont">
-        <text>
-            互联网上的资讯召之即来，挥之即找不到，所以浏览器有
-            书签、微信有收藏功能；PC 上的程序挥之也不走，因为
-            操作系统卸载功能本就藏得深，打开卸载程序后再遭遇各
-            种卸载障碍，有的不惜扯出张哭脸勾动你的恻隐之情；智
-            能手机上的程序则是召之即来，不忍挥之而去，谁知道哪
-            天突然又要用到某个应用，也就留在了手机上——尽管16GB 的手机内存空间已不足互联网上的资讯召之即来，挥之即找不到，所以浏览器有书签、微信有收藏功能；PC 上的程序挥之也不走，因为操作系统卸载功能本就藏得深，打开卸载程序后再遭遇各种卸载障碍，有的不惜扯出张哭脸勾动你的恻隐之情；智能手机上的程序则是召之即来，不忍挥之而去，谁知道哪天突然又要用到某个应用，也就留在了手机上——尽管16GB 的手机内存空间已不足互联网上的资讯召之即来，挥之即找不到，所以浏览器有书签、微信有收藏功能；PC 上的程序挥之也不走，因为操作系统卸载功能本就藏得深，打开卸载程序后再遭遇各种卸载障碍，有的不惜扯出张哭脸勾动你的恻隐之情；智能手机上的程序则是召之即来，不忍挥之而去，谁知道哪天突然又要用到某个应用，也就留在了手机上——尽管16GB 的手机内存空间已不足
-        </text>
+        <template is="wxParse" data="{{wxParseData:cont.nodes}}" />
     </view>
 </view>

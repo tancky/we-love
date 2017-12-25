@@ -1,4 +1,7 @@
 // pages/message/message.js
+const app = getApp()
+const common = require("../../utils/util.js");
+const imgurl = app.globalData.imgUrl;
 Page({
 
   /**
@@ -12,9 +15,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    this.getList()
   },
-
+  getList:function(){
+    var that = this
+    var username = common.getUserName()
+    common.httpG('message/mlist', { username: username }, function (data) {
+      that.setData({
+        List:data.data.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,25 +1,14 @@
 <!--pages/message/message.wxml-->
-<navigator url="/pages/newsDetail/newsDetail">
+<block wx:if="{{List.length>0}}">
+<block wx:for="{{List}}" wx:key="index">
+  <navigator url="/pages/newsDetail/newsDetail?message_id={{item.id}}">
     <view class="news">
-        <view class="news-title">欢迎来到WE LOVE小程序,更多惊喜等你来</view>
-        <view class="news-date">2017-11-11</view>
+      <view class="news-title">{{item.title}}</view>
+      <view class="news-date">{{item.create_time}}</view>
     </view>
-</navigator>
-<navigator>
-    <view class="news">
-        <view class="news-title">欢迎来到欢迎来到WE LOVE小程序,更多惊喜等你来</view>
-        <view class="news-date">2017-11-11</view>
-    </view>
-</navigator>
-<navigator>
-    <view class="news">
-        <view class="news-title">欢迎来到WE LOVE小程序,更多惊喜等你来</view>
-        <view class="news-date">2017-11-11</view>
-    </view>
-</navigator>
-<navigator>
-    <view class="news">
-        <view class="news-title">欢迎来到WE LOVE小程序,更多惊喜等你来</view>
-        <view class="news-date">2017-11-11</view>
-    </view>
-</navigator>
+  </navigator>
+  </block>
+</block>
+<block wx:else>
+  暂无数据
+</block>

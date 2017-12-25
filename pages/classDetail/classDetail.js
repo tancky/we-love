@@ -20,17 +20,23 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    var name = options.name;
     var cate_id = options.cate_id;
     that.setData({
       cate_id: cate_id
     })
-    this.getGoodsList(cate_id)
+    this.getGoodsList(cate_id,name)
   },
 
   //商品列表接口
-  getGoodsList: function (cate_id) {
+  getGoodsList: function (cate_id,name) {
     var that = this
-    common.httpG('good/glist', { cate_id: that.data.cate_id, paixu: that.data.selNav }, function (data) {
+    if (!that.data.keywords) {
+      that.setData({
+        keywords: ''
+      })
+    }
+    common.httpG('good/glist', { cate_id: that.data.cate_id, paixu: that.data.selNav}, function (data) {
       that.setData({
         goodsList: data.data.data,
       })

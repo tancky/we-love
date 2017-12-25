@@ -1,2 +1,15 @@
 <!--pages/coupon/coupon.wxml-->
-<text>pages/coupon/coupon.wxml</text>
+<block wx:if="{{List.length>0}}">
+<block wx:for="{{List}}" wx:key='key'>
+  <view class='discounts-list'>
+    <view class='d-left-cont'>
+      <view class='d-left-title'>{{item.name}}</view>
+      <view class='d-left-price'>¥{{item.solution}} <text>满{{item.rule}}可用</text></view>
+    </view>
+  </view>
+</block>
+</block>
+<block wx:else>
+  暂无优惠券
+</block>
+

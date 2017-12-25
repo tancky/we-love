@@ -69,6 +69,12 @@
 }
 
 .goods-wrap {
+    flex: 1;
+    display: flex;
+    justify-content: space-between;
+}
+.goods-wrap-nav {
+    flex: 0 0 86%;
     display: flex;
 }
 .goods-wrap .goods-cell {
@@ -78,7 +84,7 @@
     flex: 0 0 160rpx;
 }
 .goods-wrap .delete {
-    flex: 0 0 90rpx;
+    flex: 1;
 }
 .goods-pic {
     display: flex;
@@ -216,7 +222,4 @@
 }
 .right-count {
     margin-right: 20rpx;
-}
-.goods-wrap-nav {
-    display: flex;
 }

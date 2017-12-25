@@ -55,6 +55,7 @@ App({
 	globalData: {
 		wxUrl: 'https://huahui.qingyy.net/welovetp/public/wx.php/',
 		imgUrl: 'https://huahui.qingyy.net/welovetp/public/',
-	
+    cart_good: 'GoodList', //缓存购物车数据的key
+    orders_all: 'orders_all', //缓存所有订单的key
 	}
 })

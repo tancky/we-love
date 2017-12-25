@@ -1,6 +1,6 @@
 // pages/discounts/discounts.js
-// var app =getApp()
-var API =require('../../utils/apiD.js')
+const app = getApp()
+const common = require("../../utils/util.js");
 Page({
 
   /**
@@ -10,6 +10,7 @@ Page({
     receiveList: [],
     receive: false,
     receiveDiscounts: '点击领取',
+    List:[],
   },
 
   /**
@@ -17,25 +18,32 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    API.ajax('', function (res) {
-      console.log(res)
+    that.getList();
+  },
+  //获取优惠券列表
+  getList:function(){
+    var that = this
+    common.httpG('coupon/index', {}, function (data) {
       that.setData({
-        receiveList: res.data
+        List: data.data,
       })
     })
   },
-  getReceive() {
-    // receive为false才可以点击,避免重复点击多次
-    if(!this.data.receive) {
-      this.setData({
-        receive: true,
-        receiveDiscounts: '已领取'
-      })
-      wx.showToast({
-        title: '领取成功',
-        icon: 'success'
-      })
-    }
+  getReceive(e) {
+    var that = this
+    var username = common.getUserName()
+    var coupon_id = e.target.dataset.coupon_id
+    common.httpP('coupon/get',{username:username,coupon_id:coupon_id},function(data){
+      if (data.code == 0) {
+        wx.showToast({
+          title: data.msg,
+        })
+      }else{
+        wx.showToast({
+          title: data.msg,
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

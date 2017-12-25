@@ -20,12 +20,6 @@
             <text>详细地址</text>
             <input type='text' name='info' value="{{info}}" placeholder='如：某小区等'></input>
         </view>
-        <view class='new-add-list'>
-            <text>设为默认地址</text>
-            <view class='switch-btn'>
-                <switch name='is_default' color='#f1335a'></switch>
-            </view>
-        </view>
     </view>
     <button formType="submit" hover-class='none' class='add-btn'>确认地址</button>
 </form>

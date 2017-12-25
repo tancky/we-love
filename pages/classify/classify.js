@@ -2,6 +2,7 @@
 const app = getApp()
 const common = require("../../utils/util.js");
 const imgurl = app.globalData.imgUrl;
+const wxurl = app.globalData.wxUrl;
 Page({
 
   /**
@@ -98,6 +99,9 @@ Page({
     this.setData({
       inputVal: e.detail.value
     });
+    wx.navigateTo({
+      url: '/pages/classDetail/classDetail?name='+this.data.inputVal,
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

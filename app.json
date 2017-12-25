@@ -3,8 +3,8 @@
     "pages/index/index",
     "pages/discounts/discounts",
     "pages/submitOrder/submitOrder",
-    "pages/newAdd/newAdd",
     "pages/address/address",
+    "pages/newAdd/newAdd",
     "pages/newsDetail/newsDetail",
     "pages/message/message",
     "pages/user/user",
@@ -16,7 +16,8 @@
     "pages/coupon/coupon",
     "pages/shopCart/shopCart",
     "pages/classify/classify",
-    "pages/homeGood/homeGood"
+    "pages/homeGood/homeGood",
+    "pages/submit_from_orders/submit_from_orders"
   ],
   "window":{
     "backgroundTextStyle":"light",
