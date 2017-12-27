@@ -60,5 +60,9 @@
   </block>
 </block>
 <block wx:else>
-  暂无订单,快去选购吧
+  <view class="empty-wrap">
+    <text class="empty-title">暂无此订单</text>
+    <text class="empty-slt">快去选宝贝吧</text>
+    <view class="empty-guangguang" bindtap='searchGood'>去逛逛</view>
+  </view>
 </block>

@@ -11,9 +11,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 12rpx;
+  padding: 12rpx;
   margin-left: 20rpx;
   font-size: 30rpx;
+  box-shadow: 1px 1px 1px #ccc;
 }
 .d-left-cont .d-left-price {
   color: #ff3760;

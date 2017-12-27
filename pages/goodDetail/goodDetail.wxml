@@ -2,11 +2,18 @@
 <!--swiper-->
 <import src="../../wxParse/wxParse.wxml" />
 <swiper indicator-dots="{{indicatorDots}}" class='swiper' indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" interval="{{interval}}" duration="{{duration}}" circular='{{circular}}'>
-  <swiper-item>
-    <navigator>
-      <image src="{{imgurl+goodInfo.img}}" class="slide-image" />
-    </navigator>
-  </swiper-item>
+  <block wx:if="{{goodInfo.img_big_st == 1}}">
+    <block wx:for="{{goodImg}}" wx:key="img-index">
+      <swiper-item>
+          <image src="{{imgurl+item.img_big}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </block>
+  <block wx:else>
+    <swiper-item>
+        <image src="{{imgurl+goodInfo.img}}" class="slide-image" />
+    </swiper-item>
+  </block>
 </swiper>
 
 <view class="good-wrap">

@@ -4,7 +4,7 @@
 <swiper indicator-dots="{{indicatorDots}}" class='swiper' indicator-color="{{indicatorColor}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular='{{circular}}'>
   <block wx:for="{{slideShow}}" wx:key="index">
     <swiper-item>
-      <navigator>
+      <navigator url='{{item.url}}'>
         <image src="{{imgurl+item.img}}" class="slide-image" />
       </navigator>
     </swiper-item>
@@ -20,7 +20,7 @@
   </navigator>
 
   <!--discount-->
-  <navigator url='/pages/discounts/discounts' class="discounts">
+  <navigator url='/pages/discounts/discounts?username={{username}}' class="discounts">
     <image src="../../img/bg.png"></image>
   </navigator>
 
@@ -41,13 +41,16 @@
   </view>
 
   <!--weui-loadmore-->
-  <!--<view class="weui-loadmore">-->
-  <!--<view class="weui-loading"></view>-->
-  <!--<view class="weui-loadmore__tips">正在加载</view>-->
-  <!--</view>-->
-
-  <!--weui-load-finished-->
-  <view class="weui-loadmore weui-loadmore_line">
-    <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
-  </view>
+  <block wx:if='{{current_page < last_page}}'>
+    <view class="weui-loadmore">
+      <view class="weui-loading"></view>
+      <view class="weui-loadmore__tips">正在加载</view>
+    </view> 
+  </block>
+  <block wx:else>
+    <!--weui-load-finished-->
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">我是有底线的</view>
+    </view>
+  </block>
 </view>

@@ -17,7 +17,8 @@
     "pages/shopCart/shopCart",
     "pages/classify/classify",
     "pages/homeGood/homeGood",
-    "pages/submit_from_orders/submit_from_orders"
+    "pages/submit_from_orders/submit_from_orders",
+    "pages/searchDetail/searchDetail"
   ],
   "window":{
     "backgroundTextStyle":"light",

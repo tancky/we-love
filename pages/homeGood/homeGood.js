@@ -23,6 +23,7 @@ Page({
     decrease: 'decrease',
     goodInfo: [],
     imgurl:imgurl,
+    goodImg: [],
   },
 
   /**
@@ -31,6 +32,7 @@ Page({
   onLoad: function (options) {
     var good_id = options.good_id
     this.getGoodsInfo(good_id)
+    this.getGoodBigImg(good_id)
   },
   //获取商品详情接口
   getGoodsInfo: function (good_id) {
@@ -43,6 +45,18 @@ Page({
       })
     })
     
+  },
+  //获取商品大图接口
+  getGoodBigImg: function (good_id) {
+    var that = this
+    common.httpG('good/images',
+      {
+        good_id: good_id
+      },
+      function (data) {
+        that.setData({ goodImg: data.data })
+
+      })
   },
   changeFormat(e) {
     this.setData({

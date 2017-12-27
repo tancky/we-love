@@ -1,6 +1,6 @@
-<!--pages/classDetail/classDetail.wxml-->
+<!--pages/searchDetail/searchDetail.wxml-->
 <view class="class-tab">
-  <view data-nav='' class="{{selNav =='' ? 'class-tab-list tab-active' : 'class-tab-list' }}" bindtap='selNav' >综合</view>
+  <view data-nav='' class="{{selNav =='' ? 'class-tab-list tab-active' : 'class-tab-list' }}" bindtap='selNav'>综合</view>
   <view data-nav='sales' class="{{selNav =='sales' ? 'class-tab-list tab-active' : 'class-tab-list' }}" bindtap='selNav'>销量</view>
   <view data-nav='price' data-sel='{{selPrice}}' class="{{selNav =='price' ? 'class-tab-list tab-active' : 'class-tab-list' }}" bindtap='selNav'>价格
     <image src="../../img/jiantou.png"></image>
@@ -21,12 +21,11 @@
     </block>
   </view>
 
-   <!--weui-loadmore-->
   <block wx:if='{{current_page < last_page}}'>
     <view class="weui-loadmore">
       <view class="weui-loading"></view>
       <view class="weui-loadmore__tips">正在加载</view>
-    </view> 
+    </view>
   </block>
   <block wx:else>
     <!--weui-load-finished-->

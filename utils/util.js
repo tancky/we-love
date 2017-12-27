@@ -29,9 +29,7 @@ function numSub(num1, num2) {
 	return ((num1 * baseNum - num2 * baseNum) / baseNum).toFixed(precision);
 }
 function httpG(url, data, callback) {
-	wx.showLoading({
-		title: '努力加载中^^...',
-	})
+	wx.showNavigationBarLoading()
 	wx.request({
 		url: wxurl + url,
 		data: data,
@@ -39,15 +37,15 @@ function httpG(url, data, callback) {
 			callback(res.data); 
 		},
 		fail: function (res) {
-			console.log('request-get error:', res);
+			// console.log('request-get error:', res);
 		},
 		complete: function (res) {
-			wx.hideLoading();
+      wx.hideNavigationBarLoading();
 			 console.log("get-complete:", res.data)
 			if (res.data.code && res.data.code != 0 && res.data.msg) {
-				wx.showToast({
-					title: res.data.msg,
-				})
+				// wx.showToast({
+					// title: res.data.msg,
+				// })
 			}
 		}
 	})
@@ -61,14 +59,14 @@ function httpP(url, data, callback) {
 			callback(res.data);
 		},
 		fail: function (res) {
-			console.log('request-post error:', res);
+			// console.log('request-post error:', res);
 		},
 		complete: function (res) {
 			console.log("post-complete:", res.data)
 			if (res.data.code && res.data.code != 0 && res.data.msg) {
-				wx.showToast({
-					title: res.data.msg,
-				})
+				// wx.showToast({
+					// title: res.data.msg,
+				// })
 			}
 		}
 	})

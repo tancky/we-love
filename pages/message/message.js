@@ -8,7 +8,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    List:[],
+    hint:'',
   },
 
   /**
@@ -21,9 +22,35 @@ Page({
     var that = this
     var username = common.getUserName()
     common.httpG('message/mlist', { username: username }, function (data) {
-      that.setData({
-        List:data.data.data
-      })
+      if(data.code != 0){
+        that.setData({
+          hint: '暂无消息',
+          List: []
+        }) 
+      } else {
+        that.setData({
+          List: data.data.data
+        })  
+      }
+    }) 
+  },
+  //删除评价
+  delMsg: function (e) {
+    var that = this
+    console.log(e)
+    var id = e.currentTarget.dataset.id
+    wx.showModal({
+      title: '提示',
+      content: '确定要删除评价吗?',
+      success: function (res) {
+        if (res.confirm) {
+          common.httpG('message/delete_user', { id: id }, function (data) {
+            if (data.code == 0) {
+              that.getList()
+            }
+          })
+        }
+      }
     })
   },
   /**
@@ -37,7 +64,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    
   },
 
   /**

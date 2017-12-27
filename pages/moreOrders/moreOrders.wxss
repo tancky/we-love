@@ -93,3 +93,26 @@
     color: #ff4e25;
     border-bottom: 1px solid #ff4e25;
 }
+.empty-wrap {
+    margin-top: 150rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.empty-wrap text {
+    margin-bottom: 20rpx;
+}
+.empty-title {
+    font-size: 34rpx;
+}
+.empty-wrap .empty-slt {
+    color: #666;
+    margin-bottom: 40rpx;
+}
+.empty-guangguang {
+    padding: 4rpx 40rpx;
+    border: 1px solid #ff6887;
+    color: #ff6887;
+    border-radius: 10rpx;
+}

@@ -6,6 +6,7 @@
   height: 120rpx;
   display: flex;
   background-color: #fff;
+  box-shadow: 2px 2px 2px #ccc;
 }
 .d-left-cont {
   flex: 1;

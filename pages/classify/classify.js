@@ -100,7 +100,7 @@ Page({
       inputVal: e.detail.value
     });
     wx.navigateTo({
-      url: '/pages/classDetail/classDetail?name='+this.data.inputVal,
+      url: '/pages/searchDetail/searchDetail?name='+this.data.inputVal,
     })
   },
   /**

@@ -3,8 +3,18 @@
   <view class='discounts-list'>
     <view class='d-left-cont'>
       <view class='d-left-title'>{{item.name}}</view>
-      <view class='d-left-price'>¥{{item.solution}} <text>满{{item.rule}}可用</text></view>
+      <view class='d-left-price'>¥{{item.solution}}
+        <text>满{{item.rule}}可用</text>
+      </view>
     </view>
-    <view class='{{ receive ? "d-right-now-active" : "d-right-now"}}' data-coupon_id="{{item.id}}" bindtap='getReceive'>{{receiveDiscounts}}</view>
+    <view class='{{ item.get == "yes" ? "d-right-now-active" : "d-right-now"}}' data-coupon_id="{{item.id}}" bindtap='{{item.get == "yes" ? alrReceive : getReceive}}'>
+      <block wx:if="{{item.get == 'yes'}}">
+        已领取
+      </block>
+      <block wx:else>
+        点击领取
+      </block>
+    </view>
   </view>
 </block>
+<!-- {{ receive ? "d-right-now-active" : "d-right-now"}} -->
