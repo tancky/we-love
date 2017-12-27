@@ -14,7 +14,7 @@ Page({
     order_paid: [], //订单已支付
     order_no_pay: [], //订单待支付
     currentTab: 0,
-    st:0,
+    st: 0,
   },
 
   /**
@@ -22,9 +22,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    if(options.st == 1){
+    if (options.st == 1) {
       that.setData({
-        st:1,
+        st: 1,
         currentTab: 1,
       })
     }
@@ -65,16 +65,11 @@ Page({
       username = wx.getStorageSync('username')
     }
     common.httpG('order/index', {
-      username: username,st:st
+      username: username, st: st
     }, function (data) {
       if (data.code == 0) {
         that.setData({
           orders: data.data
-        })
-        wx.stopPullDownRefresh();
-        wx.showToast({
-          title: '成功了',
-          duration: 6000,
         })
       } else {
         that.setData({
@@ -182,7 +177,7 @@ Page({
     })
   },
   //立即退款事件
-  promptlyRefund:function(e){
+  promptlyRefund: function (e) {
     var that = this;
     var order_id = e.target.dataset.order_id;
     console.log(e)
@@ -195,7 +190,7 @@ Page({
             order_id: order_id,
           }, function (data) {
             if (data.code == 0) {
-              common.httpP('order/update_st',{order_id:order_id,st:'fastRefund'},function(data){
+              common.httpP('order/update_st', { order_id: order_id, st: 'fastRefund' }, function (data) {
                 wx.showToast({
                   title: '退款成功',
                   duration: 8000,
@@ -225,7 +220,7 @@ Page({
     } else {
       that.setData({
         currentTab: current,
-        st:current,
+        st: current,
       })
       that.getOrders()
     }

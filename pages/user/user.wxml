@@ -41,7 +41,7 @@
         <view class='nav-list'>
             <navigator url='/pages/moreOrders/moreOrders?username={{username}}&st=3'>
                 <image src='../../img/receive.png'></image>
-                <view class='nav-name'>已发货</view>
+                <view class='nav-name'>待收货</view>
             </navigator>
         </view>
         <view class='nav-list'>

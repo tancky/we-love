@@ -1,4 +1,5 @@
 <!--pages/submitOrder/submitOrder.wxml-->
+<view class='order-wrapper'>
 <view class="order-head" bindtap='tapAddress'>
   <image src="../../img/loc.png" class="left-bg"></image>
   <view class="order-title-wrap">
@@ -21,7 +22,7 @@
           <image src='../../img/cart_pic.jpg'></image>
         </view>
       </view>
-      <view class='goods goods-cell'>
+      <view class='goods goods-cell good-flex'>
         <view class='top-goods'>
           <view class='goods-name'>{{item.name}}</view>
           <view class='format'>{{item.property}}</view>
@@ -35,6 +36,7 @@
       </view>
     </view>
   </block>
+</view>
 </view>
 
 <view class="order-good-total">

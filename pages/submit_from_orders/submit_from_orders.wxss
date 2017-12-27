@@ -1,4 +1,10 @@
 /* pages/submit_from_orders/submit_from_orders.wxss */
+.order-wrapper {
+  padding-bottom: 350rpx;
+}
+.order-wrapper1 {
+  padding-bottom: 500rpx;
+}
 .order-head {
     background-color: #fff;
     display: flex;
@@ -39,7 +45,7 @@
 .order-goods-wrap {
     background-color: #fff;
     margin-top: 20rpx;
-    padding-bottom: 450rpx;
+  
 }
 .goods-wrap-nav {
     display: flex;
@@ -190,4 +196,20 @@
     background-color: #ff5512;
     color: #fff;
     font-size: 30rpx;
+}
+.good-flex {
+  flex: 1;
+}
+.submit-total-price-center {
+  flex: 1;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+
+.submit-total-price-center .red-price {
+    color: #ff1818;
+    margin:0 20rpx;
 }

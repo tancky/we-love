@@ -67,16 +67,18 @@
 }
 .index-pro-info {
     font-size: 28rpx;
-    margin: 20rpx 10rpx;
+    margin: 10rpx;
     overflow:hidden;
     text-overflow:ellipsis;
     display:-webkit-box;
     -webkit-box-orient:vertical;
-    -webkit-line-clamp:2;
+    -webkit-line-clamp:1;
 }
 .index-pro-price {
+    display: inline-block;
+    font-size: 28rpx;
     margin: 0 10rpx;
-    margin-bottom: 20rpx;
+    margin-bottom: 10rpx;
     color: #ff3312;
 }
 

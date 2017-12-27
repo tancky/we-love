@@ -1,4 +1,5 @@
 <!--pages/submit_from_orders/submit_from_orders.wxml-->
+<view class="{{from_ == 'look_detail' ? 'order-wrapper1' : 'order-wrapper'}}">
 <view class="order-head" bindtap='tapAddress'>
   <image src="../../img/loc.png" class="left-bg"></image>
   <view class="order-title-wrap">
@@ -21,7 +22,7 @@
           <image src='{{imgurl+item.img}}'></image>
         </view>
       </view>
-      <view class='goods goods-cell'>
+      <view class='goods goods-cell good-flex'>
         <view class='top-goods'>
           <view class='goods-name'>{{item.name}}</view>
           <block wx:if="{{item.property_id == 0}}">
@@ -41,7 +42,7 @@
     </view>
   </block>
 </view>
-
+</view>
 <view class="order-good-total">
   <block wx:if="{{order.coupon_id == 0}}">
     <view class="o-total-list">
@@ -62,9 +63,7 @@
   <view class="o-total-list">
     <view class="o-express-name">配送方式</view>
     <view class="o-express-format">
-      <picker bindchange="expressSlt" value="{{expressIndex}}" range="{{express}}">
-        <view>{{express[expressIndex]}}</view>
-      </picker>
+      <view>快递包邮</view>
     </view>
   </view>
   <view class="o-remark">
@@ -82,7 +81,7 @@
     </view>
   </block>
   <view class="submit-order">
-    <view class="submit-total-price">
+    <view class="{{from_=='to_pay' ? 'submit-total-price' : 'submit-total-price-center'}}">
       <text>合计金额:</text>
       <text class="red-price">¥{{order.sum_price}}</text>
     </view>

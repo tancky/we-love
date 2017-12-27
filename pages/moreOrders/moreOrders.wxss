@@ -85,7 +85,7 @@
     background-color: #eeeeee;
 }
 .o-detail .go-pay {
-    margin-left: 30rpx;
+    margin: 0 30rpx;
     background-color: #ff4e25;
     color: #fff;
 }
