@@ -18,7 +18,7 @@
 
 <view class="good-wrap">
   <view class="good-name">{{goodInfo.name}}</view>
-  <view class="good-price">¥ {{goodInfo.price}}</view>
+  <view class="good-price">¥ {{sizePrice==0?goodInfo.price:sizePrice}}</view>
   <view class="good-addition">
     <text class="express">快递: 免运费</text>
     <text class="sales">销量: {{goodInfo.sales}}件</text>

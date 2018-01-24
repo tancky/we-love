@@ -1,42 +1,42 @@
 <!--pages/submitOrder/submitOrder.wxml-->
 <view class='order-wrapper'>
-<view class="order-head" bindtap='tapAddress'>
-  <image src="../../img/loc.png" class="left-bg"></image>
-  <view class="order-title-wrap">
-    <view class="order-title">
-      <text class="order-receive-name">收货人: {{address.truename}}</text>
-      <text class="order-receive-num">{{address.mobile}}</text>
-    </view>
-    <view class="order-receive-add">收货地址: {{address.pcd}}</view>
-  </view>
-  <image src="../../img/enter.png" class="right-bg"></image>
-</view>
-<view class="line-wrap">
-  <image class="line" src="../../img/line.png"></image>
-</view>
-<view class="order-goods-wrap">
-  <block wx:for="{{GoodList}}" wx:key="index">
-    <view class="goods-wrap-nav">
-      <view class="goods-img-nav goods-cell">
-        <view class='goods-pic'>
-          <image src='../../img/cart_pic.jpg'></image>
-        </view>
+  <view class="order-head" bindtap='tapAddress'>
+    <image src="../../img/loc.png" class="left-bg"></image>
+    <view class="order-title-wrap">
+      <view class="order-title">
+        <text class="order-receive-name">收货人: {{address.truename}}</text>
+        <text class="order-receive-num">{{address.mobile}}</text>
       </view>
-      <view class='goods goods-cell good-flex'>
-        <view class='top-goods'>
-          <view class='goods-name'>{{item.name}}</view>
-          <view class='format'>{{item.property}}</view>
+      <view class="order-receive-add">收货地址: {{address.pcd}}</view>
+    </view>
+    <image src="../../img/enter.png" class="right-bg"></image>
+  </view>
+  <view class="line-wrap">
+    <image class="line" src="../../img/line.png"></image>
+  </view>
+  <view class="order-goods-wrap">
+    <block wx:for="{{GoodList}}" wx:key="index">
+      <view class="goods-wrap-nav">
+        <view class="goods-img-nav goods-cell">
+          <view class='goods-pic'>
+            <image src='{{imgurl+item.img}}'></image>
+          </view>
         </view>
-        <view class='bottom-goods'>
-          <view class='goods-price'>
-            <text class='price'> ¥ {{item.price}} </text>
-            <text class='number'>x{{item.num}}</text>
+        <view class='goods goods-cell good-flex'>
+          <view class='top-goods'>
+            <view class='goods-name'>{{item.name}}</view>
+            <view class='format'>{{item.property}}</view>
+          </view>
+          <view class='bottom-goods'>
+            <view class='goods-price'>
+              <text class='price'> ¥ {{item.price}} </text>
+              <text class='number'>x{{item.num}}</text>
+            </view>
           </view>
         </view>
       </view>
-    </view>
-  </block>
-</view>
+    </block>
+  </view>
 </view>
 
 <view class="order-good-total">
@@ -68,12 +68,20 @@
   </view>
   <view class="o-remark">
     <view class="o-remark-name">备注:</view>
-    <input type="text" name="notes" placeholder="选填:对本次交易的说明" bindinput ="notesInput"/>
+    <input type="text" name="notes" placeholder="选填:对本次交易的说明" bindinput="notesInput" />
   </view>
   <view class="submit-order">
     <view class="submit-total-price">
       <text>合计金额:</text>
+      <block wx:if="{{haveCoupon == 1}}">
+      <block wx:if="{{sum_price_all >= rule}}">
+        <text class="red-price">¥{{sum_price_all-solution}}</text>
+      </block>
+      </block>
+      <block wx:else>
       <text class="red-price">¥{{sum_price_all}}</text>
+      </block>
+        
     </view>
     <view class="submit-btn" bindtap='submitOrder' disabled='{{sumitOrderSt}}' data-coupon_id='{{arr[index].coupon_id}}'>提交订单</view>
   </view>

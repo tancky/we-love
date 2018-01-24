@@ -24,6 +24,7 @@ Page({
     goodInfo: [],
     imgurl: imgurl,
     goodImg:[],
+    sizePrice: 0,
   },
 
   /**
@@ -43,6 +44,11 @@ Page({
         cont: WxParse.wxParse('cont', 'html', data.data.desc, that, 5),
         arr: data.data.property
       })
+      if (that.data.arr) {
+        that.setData({
+          sizePrice: data.data.property[0].price,
+        })
+      }
     })
 
   },
@@ -59,8 +65,10 @@ Page({
       })
   },
   changeFormat(e) {
+    var that = this
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      sizePrice: that.data.arr[e.detail.value].price
     })
   },
   changeNumber(e) {

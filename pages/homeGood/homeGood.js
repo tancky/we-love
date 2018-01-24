@@ -22,8 +22,9 @@ Page({
     inputNum: 1,
     decrease: 'decrease',
     goodInfo: [],
-    imgurl:imgurl,
+    imgurl: imgurl,
     goodImg: [],
+    sizePrice: 0,
   },
 
   /**
@@ -41,10 +42,15 @@ Page({
       that.setData({
         goodInfo: data.data,
         cont: WxParse.wxParse('cont', 'html', data.data.desc, that, 5),
-        arr:data.data.property
+        arr: data.data.property,
       })
+      if (that.data.arr) {
+        that.setData({
+          sizePrice: data.data.property[0].price,
+        })
+      }
     })
-    
+
   },
   //获取商品大图接口
   getGoodBigImg: function (good_id) {
@@ -59,8 +65,10 @@ Page({
       })
   },
   changeFormat(e) {
+    var that = this
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      sizePrice: that.data.arr[e.detail.value].price
     })
   },
   changeNumber(e) {

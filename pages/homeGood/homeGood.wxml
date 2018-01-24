@@ -18,7 +18,7 @@
 
 <view class="good-wrap">
   <view class="good-name">{{goodInfo.name}}</view>
-  <view class="good-price">¥ {{goodInfo.price}}</view>
+  <view class="good-price">¥ {{sizePrice==0?goodInfo.price:sizePrice}}</view>
   <view class="good-addition">
     <text class="express">快递: 免运费</text>
     <text class="sales">销量: {{goodInfo.sales}}件</text>
@@ -33,7 +33,7 @@
     <view class="good-format">
       <view class="good-format-slt">规格</view>
       <view class="good-format-picker">
-        <picker bindchange="changeFormat" value="{{index}}" range="{{arr}}" range-key="value">
+        <picker bindchange="changeFormat" value="{{price}}" range="{{arr}}" range-key="value">
           <view>{{arr[index].value}}</view>
         </picker>
       </view>

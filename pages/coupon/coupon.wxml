@@ -1,15 +1,19 @@
 <!--pages/coupon/coupon.wxml-->
 <block wx:if="{{List.length>0}}">
-<block wx:for="{{List}}" wx:key='key'>
-  <view class='discounts-list'>
-    <view class='d-left-cont'>
-      <view class='d-left-title'>{{item.name}}</view>
-      <view class='d-left-price'>¥{{item.solution}} <text>满{{item.rule}}可用</text></view>
+  <block wx:for="{{List}}" wx:key='key'>
+    <view class='discounts-list'>
+      <view class='d-left-cont'>
+        <view class='d-left-title'>{{item.name}}</view>
+        <view class='d-left-price'>¥{{item.solution}}
+          <text>满{{item.rule}}可用</text>
+        </view>
+      </view>
     </view>
-  </view>
-</block>
+  </block>
 </block>
 <block wx:else>
-  暂无优惠券
+  <view class="empty-wrap">
+    <text class="empty-title">暂无可使用的优惠券</text>
+    <view class="empty-guangguang" bindtap='getCoupon'>快去领取吧</view>
+  </view>
 </block>
-

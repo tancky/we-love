@@ -20,6 +20,9 @@ Page({
     sumitOrderSt: false, //默认没有提交，提交后变为true,
     GoodList: [],
     notes: '',
+    imgurl:imgurl,
+    rule:0,
+    solution:0,
   },
 
   /**
@@ -36,14 +39,18 @@ Page({
     
   },
   couponSlt(e) {
+    var that = this
     this.setData({
-      index: e.detail.value
+      index: e.detail.value,
+      solution: that.data.arr[e.detail.value].solution,
+      rule: that.data.arr[e.detail.value].rule,
     })
   },
   expressSlt(e) {
     this.setData({
       expressIndex: e.detail.value
     })
+    
   },
   //获取用户输入的备注
   notesInput: function (e) {

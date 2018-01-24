@@ -23,9 +23,9 @@ Page({
   },
 
   onLoad: function () {
-    this.getSlideShow();
-    this.getAdHome();
-    this.getStickGood();
+    this.getSlideShow(); //轮播图接口
+    this.getAdHome();    //主页广告图接口
+    this.getStickGood(); //置顶商品接口
     var username = common.getUserName();
     if (!username) {
       app.register();
@@ -34,7 +34,7 @@ Page({
     this.setData({
       username: username
     })
-    
+    console.log(this.data.username);
     this.getInfo();// 取用户微信头像
   },
   onShow: function () {
@@ -75,6 +75,7 @@ Page({
       url: '/pages/classify/classify'
     })
   },
+  //获取用户信息
   getInfo: function () {
     var that = this;
     wx.getUserInfo({
@@ -86,7 +87,6 @@ Page({
         });
         //将用户信息：头像和昵称发送服务器
         var username = common.getUserName()
-
         common.httpP('user/save', {
           'username': username,
           'vistar': userInfo.avatarUrl,

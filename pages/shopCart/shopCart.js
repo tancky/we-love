@@ -61,6 +61,7 @@ Page({
   delCart: function (e) {
     var that = this
     var cart_id = e.target.dataset.cart_id
+    console.log(cart_id);
     var good_id = e.target.dataset.good_id
     var property_id = e.target.dataset.property_id
     var username = common.getUserName();

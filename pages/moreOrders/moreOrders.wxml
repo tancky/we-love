@@ -50,7 +50,7 @@
             <block wx:if="{{orderGoods.st == '已支付' && orderGoods.goodst == '已收货'}}">
               <text class="go-pay" bindtap="tapRefund" data-order_id="{{orderGoods.id}}">申请退货</text>
             </block>
-            <block wx:if="{{orderGoods.goodst == '已收货' || orderGoods.st == '用户取消'}}">
+            <block wx:if="{{orderGoods.goodst == '已收货' || orderGoods.st == '用户取消' || orderGoods.st == '快速退款'}}">
               <text class="go-pay" bindtap="orderDelete" data-order_id="{{orderGoods.id}}">删除</text>
             </block>
             <text class="cancel-detail" data-order_id="{{orderGoods.id}}" data-address_id="{{orderGoods.address_id}}" bindtap="lookDetail">订单详情</text>

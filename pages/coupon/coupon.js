@@ -26,6 +26,12 @@ Page({
       })
     })
   },
+  getCoupon: function () {
+    var username = common.getUserName();
+    wx.navigateTo({
+      url: '/pages/discounts/discounts?username=' + username,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
